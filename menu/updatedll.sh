@@ -23,7 +23,6 @@ wget -O restart-xray "https://raw.githubusercontent.com/arismuslimin/xraymulti/m
 wget -O xmenu "https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/xmenu.sh"
 wget -O auto-pointing "https://raw.githubusercontent.comarismuslimin/xraymulti/main/menu/auto-pointing.sh"
 wget -O cek-port "https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/cek-port.sh"
-wget -O set-br "https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/backup/set-br.sh"
 wget -O xmenu "https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/xmenu.sh"
 
 #
@@ -38,6 +37,5 @@ chmod +x certv2ray
 chmod +x restart-xray
 chmod +x auto-pointing
 chmod +x cek-port
-chmod +x set-br
 
 cd
