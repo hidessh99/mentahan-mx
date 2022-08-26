@@ -38,4 +38,9 @@ chmod +x auto-pointing
 chmod +x cek-port
 chmod +x set-br
 
+#UPDATE MENU BACKUP
+wget https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/data/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+
 cd
+rm -rf set-br
+rm -rf set-br.sh
