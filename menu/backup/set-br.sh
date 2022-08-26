@@ -27,17 +27,18 @@ rm -rf wondershaper
 echo > /home/limit
 apt install msmtp-mta ca-certificates bsd-mailx -y
 
-cat> /etc/msmtprc << EOF
-account defaults
-auth on
-account default
-host smtp.gmail.com
-port 587
-from akcellulerofficial@gmail.com
+cat<<EOF>>/etc/msmtprc
+defaults
 tls on
 tls_starttls on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
-user akcellulerofficial
+
+account default
+host smtp.gmail.com
+port 587
+auth on
+user akcellulerofficial@gmail.com
+from akcellulerofficial@gmail.com
 password @ris290894
 logfile ~/.msmtp.log
 EOF
