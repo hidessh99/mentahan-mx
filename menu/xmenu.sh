@@ -29,7 +29,7 @@ echo "╚═══════════════════════�
 echo "║ 1. Buat Semua Akun XRAY   ┃ 11.CARA POINTING DOMAIN             ║"
 echo "║ 2. Hapus Akun XRAY        ┃ 12.Auto Pointing Subdomain          ║"
 echo "║ 3. Cek Nama Domain        ┃ 13.Test Kecepatan Server            ║"
-echo "║ 4. Cek IP Publik          ┃ 14.Backup                           ║"
+echo "║ 4. Update B&R             ┃ 14.Backup                           ║"
 echo "║ 5. Update DLL             ┃ 15.Auto Backup                      ║"
 echo "║ 6. XRAY UPDATE Core       ┃ 16.Restore                          ║"
 echo "║ 7. XRAY UPDATE SCRIPT     ┃ 17.Cek Semua Layanan Port           ║"
@@ -49,7 +49,7 @@ delete-akun
 cat /etc/xray/domain
 ;;
 4)
-curl -s ipinfo.io/ip
+set-br
 ;;
 5)
 updatedll
