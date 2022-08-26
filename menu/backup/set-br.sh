@@ -27,7 +27,7 @@ rm -rf wondershaper
 echo > /home/limit
 apt install msmtp-mta ca-certificates bsd-mailx -y
 
-cat> /etc/msmtprc << EOF
+cat<<EOF>>/etc/msmtprc
 account defaults
 auth on
 account default
