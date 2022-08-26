@@ -76,7 +76,7 @@ how-pointing
 auto-pointing
 ;;
 13)
-speedtest.cli
+speedtest-cli
 ;;
 14)
 backup
