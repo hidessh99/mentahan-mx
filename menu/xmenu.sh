@@ -73,22 +73,31 @@ add-domain
 how-pointing
 ;;
 12)
-speedtest
+auto-pointing
 ;;
 13)
-reboot
+speedtest.cli
 ;;
 14)
-exit
+backup
 ;;
 15)
-cat /root/log-install.txt
+autobackup
 ;;
 16)
-auto-pointing
+restore
 ;;
 17)
 cek-port
+;;
+18)
+cat /root/log-install.txt
+;;
+19)
+reboot
+;;
+20)
+exit
 ;;
 *)
 echo "Input The Correct Number !"
