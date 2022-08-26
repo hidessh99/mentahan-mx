@@ -26,21 +26,22 @@ cd
 rm -rf wondershaper
 echo > /home/limit
 apt install msmtp-mta ca-certificates bsd-mailx -y
-cat<<EOF>>/etc/msmtprc
-defaults
-tls on
-tls_starttls on
-tls_trust_file /etc/ssl/certs/ca-certificates.crt
 
+cat> /etc/msmtprc << EOF
+account defaults
+auth on
 account default
 host smtp.gmail.com
 port 587
-auth on
-user bckupvpns@gmail.com
-from bckupvpns@gmail.com
-password Yangbaru1 
+from akcellulerofficial@gmail.com
+tls on
+tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+user akcellulerofficial
+password @ris290894
 logfile ~/.msmtp.log
 EOF
+
 chown -R www-data:www-data /etc/msmtprc
 cd /usr/bin
 wget -O autobackup "https://${akbarvpn}/autobackup.sh"
