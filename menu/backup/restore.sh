@@ -32,7 +32,6 @@ cp -r crot /var/lib/
 cp -r xray /etc/
 cp -r public_html /home/vps/
 cp crontab /etc/
-strt
 rm -rf /root/backup
 rm -f backup.zip
 echo Done
