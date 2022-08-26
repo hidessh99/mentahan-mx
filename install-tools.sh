@@ -14,7 +14,7 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 # ==================================================
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/arismuslimin/profil/"
+akbarvpn="raw.githubusercontent.com/arismuslimin/xraymulti/main/data/"
 
 #
 cd
