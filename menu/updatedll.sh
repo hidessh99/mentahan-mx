@@ -13,7 +13,7 @@ rm -r updatedll
 
 # download
 cd /usr/bin
-wget -O add-akun "https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/backup/set-br.sh"
+wget -O set-br "https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/backup/set-br.sh"
 wget -O add-akun "https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/add-akun.sh"
 wget -O updatedll "https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/updatedll.sh"
 wget -O add-akun "https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/add-akun.sh"
