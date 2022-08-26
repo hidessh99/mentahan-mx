@@ -48,12 +48,10 @@ cd /usr/bin
 wget -O autobackup "https://${akbarvpn}/autobackup.sh"
 wget -O backup "https://${akbarvpn}/backup.sh"
 wget -O restore "https://${akbarvpn}/restore.sh"
-wget -O strt "https://${akbarvpn}/strt.sh"
-wget -O limitspeed "https://${akbarvpn}/limitspeed.sh"
+
 chmod +x autobackup
 chmod +x backup
 chmod +x restore
-chmod +x strt
-chmod +x limitspeed
+
 cd
 rm -f /root/set-br.sh
