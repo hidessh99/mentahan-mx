@@ -33,7 +33,8 @@ cp -r domain /root/
 cp -r xray /etc/
 cp -r public_html /home/vps/
 cp crontab /etc/
-strt
+
+systemctl restart xray
 rm -rf /root/backup
 rm -f backup.zip
 echo Done
