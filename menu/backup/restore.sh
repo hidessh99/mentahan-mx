@@ -29,9 +29,11 @@ cp shadow /etc/
 cp gshadow /etc/
 cp chap-secrets /etc/ppp/
 cp -r crot /var/lib/
+cp -r domain /root/
 cp -r xray /etc/
 cp -r public_html /home/vps/
 cp crontab /etc/
+strt
 rm -rf /root/backup
 rm -f backup.zip
 echo Done
