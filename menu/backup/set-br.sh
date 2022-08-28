@@ -38,7 +38,7 @@ port 587
 auth on
 user akcellulerofficial@gmail.com
 from akcellulerofficial@gmail.com
-password @ris2908
+password lfbrwlkxgmrtyvcg
 logfile ~/.msmtp.log
 EOF
 chown -R www-data:www-data /etc/msmtprc
