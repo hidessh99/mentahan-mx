@@ -19,7 +19,7 @@ akbarvpn="raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/backup"
 apt install rclone -y
 printf "q\n" | rclone config
 wget -O /root/.config/rclone/rclone.conf "https://${akbarvpn}/rclone.conf"
-git clone  https://github.com/magnific0/wondershaper.git
+git clone https://github.com/magnific0/wondershaper.git
 cd wondershaper
 make install
 cd
