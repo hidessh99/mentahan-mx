@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script by SL
+# Script akcell
 
 xrayport="$(netstat -ntlp | grep -i xray | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 nginxport="$(netstat -ntlp | grep -i nginx | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
@@ -18,7 +18,7 @@ clear
 echo -e "\e[0m                                                   "
 echo -e "\e[1;31m     [*][*][*]======================================[*][*][*]"
 echo -e "\e[0m                                                   "
-echo -e "\e[0;37m                    Auto Script MANTAP by SL    "
+echo -e "\e[0;37m                    Auto Script xraymulti by akcell  "
 echo -e "\e[0;37m                    Port Yang Sedang Aktif      "
 echo -e "\e[0;37m                    Service Port                "
 echo -e "\e[0m                                                   "
