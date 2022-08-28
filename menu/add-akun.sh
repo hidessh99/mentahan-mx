@@ -78,9 +78,9 @@ vlesslinknon="vless://${uuid}@${domain}:80?path=/xrayws&encryption=none&type=ws#
 vlesslinkgrpc="vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
 
 #buatvmess
-vlesslinkws="vmess://${uuid}@${domain}:443?path=/xrayvws&security=tls&encryption=none&type=ws#${user}"
-vlesslinknon="vmess://${uuid}@${domain}:80?path=/xrayvws&encryption=none&type=ws#${user}"
-vlesslinkgrpc="vmess://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vmess-grpc&sni=bug.com#${user}"
+vmesslinkws="vmess://${uuid}@${domain}:443?path=/xrayvws&security=tls&encryption=none&type=ws#${user}"
+vmesslinknon="vmess://${uuid}@${domain}:80?path=/xrayvws&encryption=none&type=ws#${user}"
+vmesslinkgrpc="vmess://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vmess-grpc&sni=bug.com#${user}"
 
 #buattrojan
 trojanlinkgrpc="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
