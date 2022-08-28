@@ -14,7 +14,7 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 # ==================================================
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/arismuslimin/xraymulti/main/data"
+akbarvpn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/ssh"
 
 #
 cd
@@ -40,6 +40,7 @@ cat > /etc/rc.local <<-END
 #!/bin/sh -e
 # rc.local
 # By default this script does nothing.
+
 sslh-fix-reboot
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 100
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 100
@@ -113,7 +114,6 @@ apt install zlib1g-dev -y
 apt install libssl-dev -y
 apt install libssl1.0-dev -y
 apt install dos2unix -y
-apt install speedtest-cli
 
 #
 # install
