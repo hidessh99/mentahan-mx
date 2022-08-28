@@ -55,42 +55,43 @@ clear
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#trojanws$/a\#! '"$user $exp"'\
+
+sed -i '/#trojanws$/a\#t '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
+sed -i '/#trojangrpc$/a\#t '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
-sed -i '/#vless$/a\#& '"$user $exp"'\
+sed -i '/#vless$/a\#l '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vlessgrpc$/a\#& '"$user $exp"'\
+sed -i '/#vlessgrpc$/a\#l '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
-sed -i '/#vmess$/a\#& '"$user $exp"'\
+sed -i '/#vmess$/a\#m '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vmessgrpc$/a\#& '"$user $exp"'\
+sed -i '/#vmessgrpc$/a\#m '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
 systemctl restart xray
 
-#buatvless
+#buatlinkvless
 vlesslinkws="vless://${uuid}@${domain}:443?path=/xrayws&security=tls&encryption=none&type=ws#${user}"
 vlesslinknon="vless://${uuid}@${domain}:80?path=/xrayws&encryption=none&type=ws#${user}"
 vlesslinkgrpc="vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
 
-#buatvmess
+#buatlinkvmess
 vmesslinkws="vmess://${uuid}@${domain}:443?path=/xrayvws&security=tls&encryption=none&type=ws#${user}"
 vmesslinknon="vmess://${uuid}@${domain}:80?path=/xrayvws&encryption=none&type=ws#${user}"
 vmesslinkgrpc="vmess://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vmess-grpc&sni=bug.com#${user}"
 
-#buattrojan
+#buatlinktrojan
 trojanlinkgrpc="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
 trojanlinkws="trojan://${uuid}@${domain}:443?path=/xraytrojanws&security=tls&host=bug.com&type=ws&sni=bug.com#${user}"
 
 #buatshadowsocks
 cipher="aes-128-gcm"
-sed -i '/#ssws$/a\### '"$user $exp"'\
+sed -i '/#ssws$/a\#s '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#ssgrpc$/a\### '"$user $exp"'\
+sed -i '/#ssgrpc$/a\#s '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
 echo $cipher:$uuid > /tmp/log
 shadowsocks_base64=$(cat /tmp/log)
