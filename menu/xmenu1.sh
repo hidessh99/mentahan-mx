@@ -18,86 +18,57 @@ fi
 echo -e "IP-VPS          :  $IPVPS"
 echo -e "ISP-VPS         :  $ISPVPS"
 echo "╔═════════════════════════════════════════════════════════════════╗"
-echo "║                     ┃ Script By SL ┃                                       ║" 
+echo "║                       ┃ Script By Akcell ┃                      ║" 
 echo "╚═════════════════════════════════════════════════════════════════╝"
 echo "╔═════════════════════════════════════════════════════════════════╗"
-echo "║ ┃ Link Script ┃  ┃ https://github.com/fisabiliyusri/MANTAP-XRAY ┃          ║" 
+echo "║                           085730123218                          ║" 
 echo "╚═════════════════════════════════════════════════════════════════╝"
 echo "╔═════════════════════════════════════════════════════════════════╗"
-echo "║                     ┃ XRAY XMENU ┃                                         ║" 
+echo "║                       ┃ XRAY XMENU UTAMA ┃                      ║" 
 echo "╚═════════════════════════════════════════════════════════════════╝"  
-echo "║ 1. Buat Semua Akun XRAY   ┃ Create Account                       ║"
-echo "║ 2. Hapus Akun XRAY        ┃ Delete Account                       ║"
-echo "║ 3. Cek Nama Domain        ┃ Domain Name Checker                  ║"
-echo "║ 4. Cek IP Publik          ┃ Check Public IP                      ║"
-echo "║ 5. Update DLL             ┃ Update ETC                           ║"
-echo "║ 6. XRAY UPDATE Core       ┃ Update Core                          ║"
-echo "║ 7. XRAY UPDATE SCRIPT     ┃ Update Script                        ║"
-echo "║ 8. Hidupkan Ulang Xray    ┃ Restart Service XRAY                 ║"
-echo "║ 9. Perbarui Sertifikat    ┃ Update Certificate                   ║"
-echo "║ 10.Tambahkan Domain       ┃ ADD DOMAIN                           ║"
-echo "║ 11.CARA POINTING DOMAIN   ┃                                      ║"
-echo "║ 12.Test Kecepatan Server  ┃ Speedtest Server                     ║"
-echo "║ 13.Hidupkan Ulang VPS     ┃ Reboot                               ║"
-echo "║ 14.Keluar Dari Menu       ┃ Exit Menu                            ║"
-echo "║ 15.Info Script            ┃                                      ║"
-echo "║ 16.Auto Pointing Subdomain┃                                      ║"
-echo "║ 17.Cek Semua Layanan Port ┃ Check All Port Service               ║"
+echo "║ 1. Buat Akun                                                    ║"
+echo "║ 2. Hapus Akun                                                   ║"
+echo "║ 3. Menu Pengaturan                                              ║"
+echo "║ 4. Menu Backup                                                  ║"
+echo "║ 5. Menu Domain                                                  ║"
+echo "║ 6. Menu fix                                                     ║"
+echo "║ 7. Menu Update                                                  ║"
+echo "║ 8. Speedtest vps                                                ║"
+echo "║ 9. Reboot vps                                                   ║"
+echo "║ 10.Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
 read -p "     Select From Options [1-69 or x] :  " xmenu
 case $xmenu in 
 1)
-add-akun
+menu-buat
 ;;
 2)
-delete-akun
+menu-hapus
 ;;
 3)
-cat /etc/xray/domain
+menu-pengaturan
 ;;
 4)
-curl -s ipinfo.io/ip
+menu-backup
 ;;
 5)
-updatedll
+menu-domain
 ;;
 6)
-updatecore
+menu-fix
 ;;
 7)
-updatesc
+menu-update
 ;;
 8)
-restart-xray
-;;
-9)
-certv2ray
-;;
-10)
-add-domain
-;;
-11)
-how-pointing
-;;
-12)
 speedtest
 ;;
-13)
+9)
 reboot
 ;;
-14)
+10)
 exit
 ;;
-15)
-cat /root/log-install.txt
-;;
-16)
-auto-pointing
-;;
-17)
-cek-port
-;;
-*)
 echo "Input The Correct Number !"
 ;;
 esac
