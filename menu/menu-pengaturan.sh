@@ -28,7 +28,7 @@ echo "║                     ┃ XRAY XMENU PENGATURAN ┃                   �
 echo "╚═════════════════════════════════════════════════════════════════╝"  
 echo "║ 1. Pengaturan                                                   ║"
 echo "║ 2. Pengaturan 2                                                 ║"
-echo "║ 3.                                                              ║"
+echo "║ 3. Cek Port                                                             ║"
 echo "║ 4.                                                              ║"
 echo "║ 5.                                                              ║"
 echo "║ 6. Menu Utama                                                   ║"
@@ -43,7 +43,7 @@ pengaturan
 pengaturan2
 ;;
 3)
-pengaturan3
+cek-port
 ;;
 4)
 pengaturan4
