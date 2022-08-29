@@ -80,6 +80,7 @@ clear
 exit
 ;;
 *)
-echo "Input The Correct Number !"
+clear
+xmenu
 ;;
 esac
