@@ -52,12 +52,13 @@ update-lain
 update-info
 ;;
 6)
+clear
 xmenu
 ;;
 7)
 exit
-;;
 *)
-echo "Input The Correct Number !"
+clear
+xmenu
 ;;
 esac
