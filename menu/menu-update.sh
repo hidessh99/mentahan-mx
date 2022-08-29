@@ -57,6 +57,7 @@ xmenu
 7)
 exit
 ;;
+*)
 echo "Input The Correct Number !"
 ;;
 esac
