@@ -34,7 +34,7 @@ echo "║ 5. Buat akun Shadowsock                                         ║"
 echo "║ 6. Menu Utama                                                   ║"
 echo "║ 7. Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
-read -p "     Select From Options [1-69 or x] :  " xmenu
+read -p "     Select From Options [1-7 or x] :  " xmenu
 case $xmenu in 
 1)
 add-akun
