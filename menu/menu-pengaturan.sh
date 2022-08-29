@@ -34,7 +34,8 @@ echo "║ 5.                                                              ║"
 echo "║ 6. Menu Utama                                                   ║"
 echo "║ 7. Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
-read -p "     Select From Options [1-7 or x] :  " xmenu
+read -p "Select From Options [ 1 - 7 ] : " xmenu
+echo -e ""
 case $xmenu in 
 1)
 pengaturan
