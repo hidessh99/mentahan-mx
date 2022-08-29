@@ -59,8 +59,9 @@ xmenu
 7)
 clear
 exit
+;;
 *)
 clear
-xmenu
+menu
 ;;
 esac
