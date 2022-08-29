@@ -56,6 +56,7 @@ clear
 xmenu
 ;;
 7)
+clear
 exit
 ;;
 *)
