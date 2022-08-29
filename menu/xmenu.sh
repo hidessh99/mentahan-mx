@@ -78,7 +78,8 @@ reboot
 10)
 clear
 exit
-*)
+;;
+11)
 clear
 xmenu
 ;;
