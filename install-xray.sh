@@ -350,7 +350,7 @@ WantedBy=multi-user.target
 EOF
 cat > /etc/systemd/system/runn.service <<EOF
 [Unit]
-Description=Mampus-Anjeng
+Description=Trimakasih
 After=network.target
 
 [Service]
@@ -474,17 +474,9 @@ sed -i '$ igrpc_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
 sed -i '$ igrpc_pass grpc://127.0.0.1:30310;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
-
-sleep 1
-echo -e "[ ${green}INFO$NC ] Installing bbr.."
-#wget -q -O /usr/bin/bbr "https://raw.githubusercontent.com/apih46/mini/main/dll/bbr.sh"
-#chmod +x /usr/bin/bbr
-#bbr >/dev/null 2>&1
-#rm /usr/bin/bbr >/dev/null 2>&1
-echo -e "$yell[SERVICE]$NC Restart All service"
-systemctl daemon-reload
 sleep 1
 echo -e "[ ${green}ok${NC} ] Enable & restart xray "
+systemctl daemon-reload
 systemctl enable xray
 systemctl restart xray
 systemctl restart nginx
