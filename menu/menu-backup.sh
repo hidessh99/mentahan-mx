@@ -61,6 +61,6 @@ clear
 exit
 *)
 clear
-xmenu
+menu-backup
 ;;
 esac
