@@ -37,7 +37,7 @@ echo "║ 8. Speedtest vps                                                ║"
 echo "║ 9. Reboot vps                                                   ║"
 echo "║ 10.Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
-read -p "     Select From Options [1-69 or x] :  " xmenu
+read -p "     Select From Options [1-150 or x] :  " xmenu
 case $xmenu in 
 1)
 menu-buat
