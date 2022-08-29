@@ -27,12 +27,14 @@ wget -O updatedll "https://${akcell}/updatedll.sh"
 wget -O xmenu "https://${akcell}/xmenu.sh"
 wget -O menu-backup "https://${akcell}/menu-backup.sh"
 wget -O menu-buat "https://${akcell}/menu-buat.sh"
+wget -O add-akun "https://${akcell}/buat/add-akun.sh"
+wget -O add-vmess "https://${akcell}/buat/add-vmess.sh"
+wget -O add-vless "https://${akcell}/buat/add-vless.sh"
 wget -O menu-hapus "https://${akcell}/menu-hapus.sh"
 wget -O menu-update "https://${akcell}/menu-update.sh"
 wget -O menu-pengaturan "https://${akcell}/menu-pengaturan.sh"
 wget -O menu-fix "https://${akcell}/menu-fix.sh"
 wget -O menu-domain "https://${akcell}/menu-domain.sh"
-wget -O add-akun "https://${akcell}/buat/add-akun.sh"
 wget -O delete-akun "https://${akcell}/hapus/delete-akun.sh"
 wget -O certv2ray "https://${akcell}/fix/certv2ray.sh"
 wget -O restart-xray "https://${akcell}/fix/restart-xray.sh"
@@ -46,6 +48,8 @@ chmod +x updatedll
 chmod +x xmenu
 chmod +x menu-backup
 chmod +x menu-buat
+chmod +x add-vmess
+chmod +x add-vless
 chmod +x menu-hapus
 chmod +x menu-update
 chmod +x menu-pengaturan
