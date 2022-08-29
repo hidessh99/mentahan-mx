@@ -58,3 +58,6 @@ echo "Username  : $user"
 echo "Expired   : $exp"
 echo "==============================="
 echo "Script Mod akcell"
+
+clear
+xmenu
