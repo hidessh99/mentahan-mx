@@ -8,6 +8,13 @@ rm -rf updatedll
 # hapus
 cd /usr/bin
 rm -rf xmenu
+rm -rf menu-backup
+rm -rf menu-buat
+rm -rf menu-hapus
+rm -rf menu-update
+rm -rf menu-pengaturan
+rm -rf menu-fix
+rm -rf menu-domain
 rm -rf updatedll
 rm -r updatedll
 
