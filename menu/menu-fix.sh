@@ -34,8 +34,8 @@ echo "║ 5. Fix Error Lainnya                                              ║"
 echo "║ 6. Menu Utama                                                   ║"
 echo "║ 7. Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
-read -p "     Select From Options [1-69 or x] :  " xmenu
-case $xmenu in 
+read -p "     Select From Options [1-69 or x] :  " menu-fix
+case $menu-fix in 
 1)
 certv2ray
 ;;
