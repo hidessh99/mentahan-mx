@@ -62,6 +62,7 @@ exit
 ;;
 *)
 clear
-xmenu
+menu
 ;;
+esac
 esac
