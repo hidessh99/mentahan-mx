@@ -37,38 +37,49 @@ echo "║ 8. Speedtest vps                                                ║"
 echo "║ 9. Reboot vps                                                   ║"
 echo "║ 10.Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
-read -p "     Select From Options [1-150 or x] :  " xmenu
+read -p "     Select From Options [1-20 or x] :  " xmenu
 case $xmenu in 
 1)
+clear
 menu-buat
 ;;
 2)
+clear
 menu-hapus
 ;;
 3)
+clear
 menu-pengaturan
 ;;
 4)
+clear
 menu-backup
 ;;
 5)
+clear
 menu-domain
 ;;
 6)
+clear
 menu-fix
 ;;
 7)
+clear
 menu-update
 ;;
 8)
+clear
 speedtest
 ;;
 9)
+clear
 reboot
 ;;
 10)
+clear
 exit
-;;
-echo "Input The Correct Number !"
+*)
+clear
+xmenu
 ;;
 esac
