@@ -42,13 +42,6 @@ wget -O cek-port "https://${akcell}/pengaturan/cek-port.sh"
 # permision
 chmod +x /usr/bin/updatedll
 chmod +x /usr/bin/xmenu
-chmod +x /usr/bin/menu-backup
-chmod +x /usr/bin/menu-buat
-chmod +x /usr/bin/menu-hapus
-chmod +x /usr/bin/menu-update
-chmod +x /usr/bin/menu-pengaturan
-chmod +x /usr/bin/menu-fix
-chmod +x /usr/bin/menu-domain
 chmod +x updatedll
 chmod +x xmenu
 chmod +x menu-backup
