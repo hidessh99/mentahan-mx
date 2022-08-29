@@ -34,8 +34,8 @@ echo "║ 5. Tes Domain                                                   ║"
 echo "║ 6. Menu Utama                                                   ║"
 echo "║ 7. Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
-read -p "     Select From Options [1-7 or x] :  " menu-domain
-case $menu-domain in 
+read -p "     Select From Options [1-7 or x] :  " xmenu
+case $xmenu in 
 1)
 new-domain
 ;;
