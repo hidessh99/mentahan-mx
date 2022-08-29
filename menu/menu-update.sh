@@ -34,8 +34,8 @@ echo "║ 5. Update info                                                  ║"
 echo "║ 6. Menu Utama                                                   ║"
 echo "║ 7. Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
-read -p "     Select From Options [1-7 or x] :  " menu-update
-case $menu-update in 
+read -p "     Select From Options [1-7 or x] :  " xmenu
+case $xmenu in 
 1)
 update-sr
 ;;
