@@ -34,8 +34,8 @@ echo "║ 5. Hapus akun Shadowsock                                         ║"
 echo "║ 6. Menu Utama                                                   ║"
 echo "║ 7. Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
-read -p "     Select From Options [1-69 or x] :  " xmenu
-case $xmenu in 
+read -p "     Select From Options [1-7 or x] :  " menu-hapus
+case $menu-hapus in 
 1)
 delete-akun
 ;;
