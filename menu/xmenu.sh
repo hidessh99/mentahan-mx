@@ -79,8 +79,7 @@ reboot
 clear
 exit
 ;;
-11)
-clear
-xmenu
+*)
+echo "Input The Correct Number !"
 ;;
 esac
