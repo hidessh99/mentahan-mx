@@ -37,7 +37,7 @@ echo "║ 8. Speedtest vps                                                ║"
 echo "║ 9. Reboot vps                                                   ║"
 echo "║ 10.Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
-read -p "     Select From Options [1-10 or x] :  " xmenu
+read -p "Select From Options [ 1 - 10 ] : " xmenu
 case $xmenu in 
 1)
 clear
