@@ -47,11 +47,9 @@ cd /usr/bin
 wget -O autobackup "https://${akbarvpn}/backup/autobackup.sh"
 wget -O backup "https://${akbarvpn}/backup/backup.sh"
 wget -O restore "https://${akbarvpn}/backup/restore.sh"
-wget -O strt "https://${akbarvpn}/backup/strt.sh"
 
 chmod +x autobackup
 chmod +x backup
 chmod +x restore
-chmod +x strt
 cd
 rm -f /root/set-br.sh
