@@ -34,8 +34,8 @@ echo "║ 5. Tes Kirim Email                                              ║"
 echo "║ 6. Menu Utama                                                   ║"
 echo "║ 7. Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
-read -p "     Select From Options [1-69 or x] :  " menu-backup
-case $menu-backup in 
+read -p "     Select From Options [1-69 or x] :  " xmenu
+case $xmenu in 
 1)
 backup
 ;;
