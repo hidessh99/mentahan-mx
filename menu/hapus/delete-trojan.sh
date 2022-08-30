@@ -46,12 +46,11 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^# " "/etc/xray/config.json")
 user=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 sed -i "/^# $user $exp $hariini $uuid/,/^},{/d" /etc/xray/config.json
-sed -i "/^# $user $exp $hariini $uuid/,/^},{/d" /etc/xray/config.json
 systemctl restart xray.service
 clear
 echo ""
 echo "==============================="
-echo "  XRAYS/TROJAN-GO Account Deleted  "
+echo "${NC}${GREEN} TROJAN AKUN BERHASIL DI HAPUS ${NC}"
 echo "==============================="
 echo "Username  : $user"
 echo "Expired   : $exp"
