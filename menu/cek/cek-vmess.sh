@@ -77,20 +77,20 @@ echo -e "Security    : auto"
 echo -e "Network     : ws/grpc"
 echo -e "Path        : /xrayvws/vmess-grpc"
 echo -e "Created     : $hariini"
-echo -e "Expired     : $exp"
-echo -e "link   vmess ws"
-echo -e
-echo -e "${vmessws}"
-echo -e
 echo -e "========================="
 echo -e "link   vmess ws"
 echo -e
-echo -e "${vmesswstls}"
+echo -e "${NC}${GREEN} ${vmesslinkws} ${NC}"
+echo -e
+echo -e "========================="
+echo -e "link   vmess ws tls"
+echo -e
+echo -e "${NC}${ORANGE} ${vmesslinkwstls} ${NC}"
 echo -e
 echo -e "========================="
 echo -e "link vmess grpc"
 echo -e
-echo -e "${vmessgrpc}"
+echo -e "${NC}${BLUE} ${vmesslinkgrpc} ${NC}"
 echo -e
 echo -e "========================="
 echo -e "AKCELL XRAY MULTI VMESS"
