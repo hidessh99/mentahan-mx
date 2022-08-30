@@ -28,14 +28,15 @@ echo "║                       ┃ XRAY XMENU UTAMA ┃                      �
 echo "╚═════════════════════════════════════════════════════════════════╝"  
 echo "║ 1. Buat Akun                                                    ║"
 echo "║ 2. Hapus Akun                                                   ║"
-echo "║ 3. Menu Pengaturan                                              ║"
-echo "║ 4. Menu Backup                                                  ║"
-echo "║ 5. Menu Domain                                                  ║"
-echo "║ 6. Menu fix                                                     ║"
-echo "║ 7. Menu Update                                                  ║"
-echo "║ 8. Speedtest vps                                                ║"
-echo "║ 9. Reboot vps                                                   ║"
-echo "║ 10.Exit                                                         ║"
+echo "║ 3. Cek Akun                                                     ║"
+echo "║ 4. Menu Pengaturan                                              ║"
+echo "║ 5. Menu Backup                                                  ║"
+echo "║ 6. Menu Domain                                                  ║"
+echo "║ 7. Menu Fix                                                     ║"
+echo "║ 8. Menu Update                                                  ║"
+echo "║ 9. Speedtest vps                                                ║"
+echo "║ 10. Reboot vps                                                  ║"
+echo "║ 11.Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
 read -p "Select From Options [ 1 - 10 ] : " xmenu
 case $xmenu in 
@@ -49,33 +50,37 @@ menu-hapus
 ;;
 3)
 clear
-menu-pengaturan
+menu-cek
 ;;
 4)
 clear
-menu-backup
+menu-pengaturan
 ;;
 5)
 clear
-menu-domain
+menu-backup
 ;;
 6)
 clear
-menu-fix
+menu-domain
 ;;
 7)
 clear
-menu-update
+menu-fix
 ;;
 8)
 clear
-speedtest
+menu-update
 ;;
 9)
 clear
-reboot
+speedtest
 ;;
 10)
+clear
+reboot
+;;
+11)
 clear
 exit
 ;;
