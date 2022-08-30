@@ -26,13 +26,17 @@ echo "╚═══════════════════════�
 echo "╔═════════════════════════════════════════════════════════════════╗"
 echo "║                     ┃ XRAY XMENU HAPUS AKUN ┃                   ║" 
 echo "╚═════════════════════════════════════════════════════════════════╝"  
-echo "║ 1. cek Akun Semua Akun (vmess,vless,trojan,shadowsock)         ║"
-echo "║ 2. cek Akun Vmess                                              ║"
-echo "║ 3. cek Akun Vless                                              ║"
-echo "║ 4. cek Akun Trojan-go                                          ║"
-echo "║ 5. cek akun Shadowsock                                         ║"
-echo "║ 6. Menu Utama                                                   ║"
-echo "║ 7. Exit                                                         ║"
+echo "║ 1. cek Akun Semua Akun (vmess,vless,trojan,shadowsock)          ║"
+echo "║ 2. cek Akun Vmess                                               ║"
+echo "║ 3. cek Akun Vless                                               ║"
+echo "║ 4. cek Akun Trojan-go                                           ║"
+echo "║ 5. cek akun Shadowsock                                          ║"
+echo "║ 6. cek User Vmess                                               ║"
+echo "║ 7. cek User Vless                                               ║"
+echo "║ 8. cek User Trojan-go                                           ║"
+echo "║ 9. cek User Shadowsock                                          ║"
+echo "║ 10. Menu Utama                                                  ║"
+echo "║ 11. Exit                                                        ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
 read -p "Select From Options [ 1 - 7 ] : " xmenu
 echo -e ""
@@ -53,10 +57,22 @@ cek-trojan
 cek-ss
 ;;
 6)
+cek-uservmess
+;;
+7)
+cek-uservless
+;;
+8)
+cek-usertrojan
+;;
+9)
+cek-userss
+;;
+10)
 clear
 xmenu
 ;;
-7)
+11)
 clear
 exit
 ;;
