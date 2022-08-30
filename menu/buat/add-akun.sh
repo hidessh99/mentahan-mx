@@ -422,4 +422,3 @@ echo -e "URL Custom Config GRPC TLS : http://${domain}:89/ss-grpc-$user.txt"
 echo -e "===================================================="
 echo -e                "AKCELL XRAY MULTI AKUN"
 echo -e "===================================================="
-cd
