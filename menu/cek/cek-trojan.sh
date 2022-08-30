@@ -43,7 +43,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^# " "/etc/xray/config.json")
 	echo " Select the existing client you want to remove"
 	echo " Press CTRL+C to return"
 	echo " ==============================="
-	echo "     No  Expired   User"
+	echo "     No    User   Expired"
 	grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
@@ -56,7 +56,7 @@ user=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIEN
 exp=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 hariini=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 uuid=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
-#linkvless
+
 #buatlinktrojan
 trojanlinkwstls="trojan://${uuid}@${domain}:443?path=/xraytrojanws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 trojanlinkgrpc="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=${domain}#${user}"
@@ -75,10 +75,13 @@ echo -e "Network     : ws/grpc"
 echo -e "Path        : /xraytrojanws/trojan-grpc"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
+echo -e "link   trojan ws"
+echo -e "${NC}${GREEN} ${trojanlinkws} ${NC}"
+echo -e "========================="
 echo -e "link   trojan ws tls"
-echo -e "${trojanlinkwstls}"
+echo -e "${NC}${ORANGE} ${trojanlinkwstls} ${NC}"
 echo -e "========================="
 echo -e "link trojan grpc"
-echo -e "${trojanlinkgrpc}"
+echo -e "${NC}${BLUE} ${trojanlinkgrpc} ${NC}"
 echo -e "========================="
 echo -e "AKCELL XRAY MULTI TROJAN-GO"
