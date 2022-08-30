@@ -132,7 +132,7 @@ vmesslinkwstls="vmess://$(base64 -w 0 /etc/xray/vmess-$user-wstls.json)"
 vmesslinkgrpc="vmess://$(base64 -w 0 /etc/xray/vmess-$user-grpc.json)"
 
 #buatlinktrojan
-trojanlinkws="trojan://${uuid}@${domain}:443?path=/xraytrojanws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+trojanlinkwstls="trojan://${uuid}@${domain}:443?path=/xraytrojanws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 trojanlinkgrpc="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=${domain}#${user}"
 
 
@@ -147,7 +147,7 @@ shadowsocks_base64=$(cat /tmp/log)
 echo -n "${shadowsocks_base64}" | base64 > /tmp/log1
 shadowsocks_base64e=$(cat /tmp/log1)
 shadowsockslink="ss://${shadowsocks_base64e}@$domain:$tls?plugin=xray-plugin;mux=0;path=/xrayssws;host=$domain;tls#${user}"
-shadowsockslink1="ss://${shadowsocks_base64e}@$domain:$tls?plugin=xray-plugin;mux=0;serviceName=ss-grpc;host=$domain;tls#${user}"
+shadowsockslinkgrpc="ss://${shadowsocks_base64e}@$domain:$tls?plugin=xray-plugin;mux=0;serviceName=ss-grpc;host=$domain;tls#${user}"
 systemctl restart xray
 rm -rf /tmp/log
 rm -rf /tmp/log1
@@ -363,75 +363,6 @@ cat > /home/vps/public_html/ss-grpc-$user.txt <<-END
   "stats": {}
 }
 END
-
-#buatallakun
-clear
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /etc/log-create-user.log
-echo -e "====== XRAY MANTAP Multi Port=======" | tee -a /etc/log-create-user.log
-echo -e "INFORMASI AKUN VPN XRAY" | tee -a /etc/log-create-user.log
-echo -e "IP: $MYIP" | tee -a /etc/log-create-user.log
-echo -e "Host/Domain: $domain" | tee -a /etc/log-create-user.log
-echo -e "Password/ID: $uuid" | tee -a /etc/log-create-user.log
-echo -e "====== Service Port =======" | tee -a /etc/log-create-user.log
-echo -e "Websocket TLS  : 443" | tee -a /etc/log-create-user.log
-echo -e "Websocket HTTP : 80" | tee -a /etc/log-create-user.log
-echo -e "GRPC TLS       : 443" | tee -a /etc/log-create-user.log
-echo -e "*Note OPOK: opok only supports coremeta"
-echo -e "*Note SHADOWSOCKS: gunakan custom config atau plugin xray"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /etc/log-create-user.log
-
-#buattrojan
-echo -e "Protokol VPN: TROJAN" | tee -a /etc/log-create-user.log
-echo -e "Network: WS/GRPC" | tee -a /etc/log-create-user.log
-echo -e "====== Path =======" | tee -a /etc/log-create-user.log
-echo -e "=> WS TLS : /xraytrojanws" | tee -a /etc/log-create-user.log
-echo -e "=> GRPC   : trojan-grpc" | tee -a /etc/log-create-user.log
-echo -e "=> OPOK   : ws://bugcom/xraytrojanws" | tee -a /etc/log-create-user.log
-echo -e "====== Import Config From Clipboard =======" | tee -a /etc/log-create-user.log
-echo -e "Link Config WS TLS   : $trojanlinkws" | tee -a /etc/log-create-user.log
-echo -e "Link Config GRPC TLS : $trojanlinkgrpc" | tee -a /etc/log-create-user.log
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /etc/log-create-user.log
-
-#buatssc
-echo -e "Protokol VPN: SHADOWSOCKS" | tee -a /etc/log-create-user.log
-echo -e "Network: WS/GRPC" | tee -a /etc/log-create-user.log
-echo -e "Method Cipers : aes-128-gcm" | tee -a /etc/log-create-user.log
-echo -e "====== Path =======" | tee -a /etc/log-create-user.log
-echo -e "=> WS TLS : /xrayssws" | tee -a /etc/log-create-user.log
-echo -e "=> GRPC   : ss-grpc" | tee -a /etc/log-create-user.log
-echo -e "=> OPOK   : ws://bugcom/xrayssws" | tee -a /etc/log-create-user.log
-echo -e "======Custom Import Config From URL =======" | tee -a /etc/log-create-user.log
-echo -e "URL Custom Config WS TLS   : http://${domain}:89/ss-ws-$user.txt" | tee -a /etc/log-create-user.log
-echo -e "URL Custom Config GRPC TLS : http://${domain}:89/ss-grpc-$user.txt" | tee -a /etc/log-create-user.log
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /etc/log-create-user.log
-
-#buatvless
-echo -e "Protokol VPN: VLESS" | tee -a /etc/log-create-user.log
-echo -e "Network: WS/GRPC" | tee -a /etc/log-create-user.log
-echo -e "====== Path =======" | tee -a /etc/log-create-user.log
-echo -e "=> WS TLS : /xrayws" | tee -a /etc/log-create-user.log
-echo -e "=> GRPC   : vless-grpc" | tee -a /etc/log-create-user.log
-echo -e "=> OPOK   : ws://bugcom/xrayws" | tee -a /etc/log-create-user.log
-echo -e "====== Import Config From Clipboard =======" | tee -a /etc/log-create-user.log
-echo -e "Link Config WS TLS    : $vlesslinkws" | tee -a /etc/log-create-user.log
-echo -e "Link Config GRPC TLS  : $vlesslinkgrpc" | tee -a /etc/log-create-user.log
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /etc/log-create-user.log
-
-#buatvmess
-echo -e "Protokol VPN: VMESS" | tee -a /etc/log-create-user.log
-echo -e "Alter ID: 0" | tee -a /etc/log-create-user.log
-echo -e "Network: WS/GRPC" | tee -a /etc/log-create-user.log
-echo -e "====== Path =======" | tee -a /etc/log-create-user.log
-echo -e "=> WS TLS : /xrayvws" | tee -a /etc/log-create-user.log
-echo -e "=> GRPC   : vmess-grpc" | tee -a /etc/log-create-user.log
-echo -e "=> OPOK   : ws://bugcom/xrayvws" | tee -a /etc/log-create-user.log
-echo -e "====== Import Config From Clipboard =======" | tee -a /etc/log-create-user.log
-echo -e "Link Config WS TLS    : $vmesslinkws" | tee -a /etc/log-create-user.log
-echo -e "Link Config GRPC TLS  : $vmesslinkgrpc" | tee -a /etc/log-create-user.log
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /etc/log-create-user.log
-
-echo -e "SCRIPT XRAYMULTI" | tee -a /etc/log-create-user.log
-echo "" | tee -a /etc/log-create-user.log
 cd
 clear
 echo -e ""
@@ -473,4 +404,22 @@ echo -e "========================="
 echo -e "link vless grpc"
 echo -e "${vlesslinkgrpc}"
 echo -e "========================="
-echo -e "AKCELL XRAYMULTI"
+echo -e "link trojan WS tls"
+echo -e "${trojanlinkwstls}"
+echo -e "========================="
+echo -e "link trojan grpc"
+echo -e "${trojanlinkgrpc}"
+echo -e "========================="
+echo -e "link shadowshock"
+echo -e "${shadowsockslink}"
+echo -e "========================="
+echo -e "link shadowshock grpc"
+echo -e "${shadowsockslinkgrpc}"
+echo -e "========================="
+echo -e "======Custom Import Config From URL ======="
+echo -e "URL Custom Config WS TLS   : http://${domain}:89/ss-ws-$user.txt" 
+echo -e "URL Custom Config GRPC TLS : http://${domain}:89/ss-grpc-$user.txt" 
+echo -e "===================================================="
+echo -e                "AKCELL XRAY MULTI AKUN"
+echo -e "===================================================="
+cd
