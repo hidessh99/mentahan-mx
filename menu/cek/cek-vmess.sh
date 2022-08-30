@@ -61,8 +61,7 @@ vmess_base642=$( base64 -w 0 <<< $vmess_json2)
 vmessws="vmess://$(base64 -w 0 /etc/xray/vmess-$user-ws.json)"
 vmesswstls="vmess://$(base64 -w 0 /etc/xray/vmess-$user-wstls.json)"
 vmessgrpc="vmess://$(base64 -w 0 /etc/xray/vmess-$user-grpc.json)"
-systemctl restart xray.service
-service cron restart
+
 clear
 echo -e ""
 echo -e "======-XRAYS/VMESS-======"
@@ -93,4 +92,4 @@ echo -e
 echo -e "${vmessgrpc}"
 echo -e
 echo -e "========================="
-echo -e "AKCELL XRAYMULTI"
+echo -e "AKCELL XRAY MULTI VMESS"
