@@ -68,11 +68,11 @@ cat>/etc/xray/vmess-$user-grpc.json<<EOF
       "v": "2",
       "ps": "${user}",
       "add": "${domain}",
-      "port": "${nontls}",
+      "port": "${tls}",
       "id": "${uuid}",
       "aid": "0",
       "net": "grpc",
-      "path": "/xrayvws",
+      "path": "/vmess-vws",
       "type": "none",
       "host": "${domain}",
       "tls": "tls"
@@ -96,13 +96,17 @@ echo -e "User ID     : ${uuid}"
 echo -e "Alter ID    : 0"
 echo -e "Security    : auto"
 echo -e "Network     : ws / grpc"
-echo -e "Path        : /xrayvws/"
+echo -e "Path        : /xrayvws/vmess-grpc"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
 echo -e "link   vmess ws"
+echo -e
 echo -e "${vmessws}"
+echo -e
 echo -e "========================="
 echo -e "link vmess grpc"
+echo -e
 echo -e "${vmessgrpc}"
+echo -e
 echo -e "========================="
-echo -e "Script XRAYMULTI"
+echo -e "AKCELL XRAYMULTI"
