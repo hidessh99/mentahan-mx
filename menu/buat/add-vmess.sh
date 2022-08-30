@@ -53,6 +53,21 @@ cat>/etc/xray/vmess-$user-ws.json<<EOF
       "v": "2",
       "ps": "${user}",
       "add": "${domain}",
+      "port": "${nontls}",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
+      "path": "/xrayvws",
+      "type": "none",
+      "host": "${domain}",
+      "tls": "tls"
+}
+EOF
+cat>/etc/xray/vmess-$user-wstls.json<<EOF
+      {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
       "port": "${tls}",
       "id": "${uuid}",
       "aid": "0",
@@ -72,7 +87,7 @@ cat>/etc/xray/vmess-$user-grpc.json<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "grpc",
-      "path": "/vmess-vws",
+      "path": "/vmess-grpc",
       "type": "none",
       "host": "${domain}",
       "tls": "tls"
@@ -81,6 +96,7 @@ EOF
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
 vmessws="vmess://$(base64 -w 0 /etc/xray/vmess-$user-ws.json)"
+vmesswstls="vmess://$(base64 -w 0 /etc/xray/vmess-$user-wstls.json)"
 vmessgrpc="vmess://$(base64 -w 0 /etc/xray/vmess-$user-grpc.json)"
 systemctl restart xray.service
 service cron restart
@@ -95,13 +111,18 @@ echo -e "Port No TLS : ${nontls}"
 echo -e "User ID     : ${uuid}"
 echo -e "Alter ID    : 0"
 echo -e "Security    : auto"
-echo -e "Network     : ws / grpc"
+echo -e "Network     : ws/grpc"
 echo -e "Path        : /xrayvws/vmess-grpc"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
 echo -e "link   vmess ws"
 echo -e
 echo -e "${vmessws}"
+echo -e
+echo -e "========================="
+echo -e "link   vmess ws"
+echo -e
+echo -e "${vmesswstls}"
 echo -e
 echo -e "========================="
 echo -e "link vmess grpc"
