@@ -44,13 +44,13 @@ uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#vless$/a\## '"$user $exp"'\
+sed -i '/#vless$/a\## '"$user $exp $hariini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vlessgrpc$/a\## '"$user $exp"'\
+sed -i '/#vlessgrpc$/a\## '"$user $exp $hariini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-vlesslinkws="vless://${uuid}@${domain}:80?path=/xrayws&security=none&encryption=none&host=${domain}&type=ws#${user}"
-vlesslinkwstls="vless://${uuid}@${domain}:443?path=/xrayws&security=tls&encryption=none&host=${domain}&type=ws&sni=${domain}#${user}"
-vlesslinkgrpc="vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=${domain}#${user}"
+vlesslinkws="vless://${uuid}@${domain}:${nontls}?path=/xrayws&security=none&encryption=none&host=${domain}&type=ws#${user}"
+vlesslinkwstls="vless://${uuid}@${domain}:${tls}?path=/xrayws&security=tls&encryption=none&host=${domain}&type=ws&sni=${domain}#${user}"
+vlesslinkgrpc="vless://${uuid}@${domain}:${tls}?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=${domain}#${user}"
 systemctl restart xray.service
 service cron restart
 clear
@@ -68,8 +68,10 @@ echo -e "Path        : /xrayws/vless-grpc"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
 echo -e "========================="
-echo -e "Link TLS    : ${vlesslinkwstls}"
+echo -e "Link TLS    	"
+echo -e "${NC}${GREEN} ${vlesslinkwstls} ${NC}"
 echo -e "========================="
-echo -e "Link No TLS : ${vlesslinkgrpc}"
+echo -e "Link No TLS 	"
+echo -e "${NC}${GREEN} ${vlesslinkgrpc} ${NC}"
 echo -e "========================="
 echo -e "AKCELL XRAY MULTI VLESS"
