@@ -45,9 +45,9 @@ read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vmessgrpc$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 cat>/etc/xray/vmess-$user-ws.json<<EOF
       {
       "v": "2",
@@ -57,11 +57,10 @@ cat>/etc/xray/vmess-$user-ws.json<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/xrayvws/",
+      "path": "/xrayvws",
       "type": "none",
       "host": "${domain}",
       "tls": "tls"
-      "sni": "${domain}"
 }
 EOF
 cat>/etc/xray/vmess-$user-grpc.json<<EOF
@@ -73,11 +72,10 @@ cat>/etc/xray/vmess-$user-grpc.json<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "grpc",
-      "path": "/xrayvws/",
+      "path": "/xrayvws",
       "type": "none",
       "host": "${domain}",
       "tls": "tls"
-      "sni": "${domain}"
 }
 EOF
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
@@ -101,8 +99,9 @@ echo -e "Network     : ws / grpc"
 echo -e "Path        : /xrayvws/"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
-echo -e "link vmess ws"
+echo -e "link   vmess ws"
 echo -e "${vmessws}"
+echo -e "========================="
 echo -e "link vmess grpc"
 echo -e "${vmessgrpc}"
 echo -e "========================="
