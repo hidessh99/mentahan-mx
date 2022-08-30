@@ -129,7 +129,7 @@ echo -e
 echo -e "========================="
 echo -e "link vmess grpc"
 echo -e
-echo -e "${NC}${BLUE} ${vmesslinkgrps} ${NC}"
+echo -e "${NC}${BLUE} ${vmesslinkgrpc} ${NC}"
 echo -e
 echo -e "========================="
 echo -e "AKCELL XRAY MULTI VMESS"
