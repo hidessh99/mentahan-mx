@@ -45,9 +45,9 @@ read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 
-sed -i '/#trojanws$/a\# '"$user $exp"'\
+sed -i '/#trojanws$/a\# '"$user $exp $hariini $uuid"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#trojangrpc$/a\# '"$user $exp"'\
+sed -i '/#trojangrpc$/a\# '"$user $exp $hariini $uuid"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
 #buatlinktrojan
