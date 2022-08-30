@@ -26,7 +26,8 @@ cd
 rm -rf wondershaper
 echo > /home/limit
 apt install msmtp-mta ca-certificates bsd-mailx -y
-cat<<EOF>>/etc/msmtprc
+
+cat >/etc/msmtprc<<EOF
 defaults
 tls on
 tls_starttls on
@@ -44,9 +45,9 @@ chown -R www-data:www-data /etc/msmtprc
 
 #download
 cd /usr/bin
-wget -O autobackup "https://${akbarvpn}/backup/autobackup.sh"
-wget -O backup "https://${akbarvpn}/backup/backup.sh"
-wget -O restore "https://${akbarvpn}/backup/restore.sh"
+wget -O autobackup "https://${akcell}/backup/autobackup.sh"
+wget -O backup "https://${akcell}/backup/backup.sh"
+wget -O restore "https://${akcell}/backup/restore.sh"
 
 chmod +x autobackup
 chmod +x backup
