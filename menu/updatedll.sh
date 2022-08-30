@@ -8,6 +8,7 @@ rm -rf updatedll
 # hapus
 cd /usr/bin
 rm -rf xmenu
+rm -rf set-br
 rm -rf menu-backup
 rm -rf menu-buat
 rm -rf menu-hapus
@@ -25,6 +26,7 @@ akcell="raw.githubusercontent.com/arismuslimin/xraymulti/main/menu"
 cd /usr/bin
 wget -O updatedll "https://${akcell}/updatedll.sh"
 wget -O xmenu "https://${akcell}/xmenu.sh"
+wget -O set-br "https://${akcell}/set-br.sh"
 wget -O menu-buat "https://${akcell}/menu-buat.sh"
 wget -O add-akun "https://${akcell}/buat/add-akun.sh"
 wget -O add-vmess "https://${akcell}/buat/add-vmess.sh"
@@ -51,7 +53,7 @@ chmod +x /usr/bin/updatedll
 chmod +x /usr/bin/xmenu
 chmod +x updatedll
 chmod +x xmenu
-chmod +x menu-backup
+chmod +x set-br
 chmod +x menu-buat
 chmod +x add-akun
 chmod +x add-vmess
@@ -65,6 +67,7 @@ chmod +x cek-uservmess
 chmod +x menu-update
 chmod +x menu-pengaturan
 chmod +x cek-port
+chmod +x menu-backup
 chmod +x menu-fix
 chmod +x certv2ray
 chmod +x restart-xray
