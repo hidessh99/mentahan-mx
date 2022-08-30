@@ -48,6 +48,7 @@ sed -i '/#vless$/a\## '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vlessgrpc$/a\## '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+EOF
 vlesslinkws=""vless://${uuid}@${domain}:80?path=/xrayws&security=none&encryption=none&host=${domain}&type=ws#${user}"
 vlesslinkwstls="vless://${uuid}@${domain}:443?path=/xrayws&security=tls&encryption=none&host=${domain}&type=ws&sni=${domain}#${user}"
 vlesslinkgrpc="vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=${domain}#${user}"
