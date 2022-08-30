@@ -57,6 +57,6 @@ echo "Username  : $user"
 echo "Expired   : $exp"
 echo "==============================="
 echo "AKCELL XRAY MULTI VLESS"
-sleep 3
+sleep 2
 clear
 menu-hapus
