@@ -25,16 +25,18 @@ akcell="raw.githubusercontent.com/arismuslimin/xraymulti/main/menu"
 cd /usr/bin
 wget -O updatedll "https://${akcell}/updatedll.sh"
 wget -O xmenu "https://${akcell}/xmenu.sh"
-wget -O menu-backup "https://${akcell}/menu-backup.sh"
 wget -O menu-buat "https://${akcell}/menu-buat.sh"
 wget -O add-akun "https://${akcell}/buat/add-akun.sh"
 wget -O add-vmess "https://${akcell}/buat/add-vmess.sh"
 wget -O add-vless "https://${akcell}/buat/add-vless.sh"
-wget -O delete-akun "https://${akcell}/hapus/delete-akun.sh"
 wget -O menu-hapus "https://${akcell}/menu-hapus.sh"
-wget -O delete-vmess "https://${akcell}/delete-vmess.sh"
-wget -O menu-update "https://${akcell}/menu-update.sh"
+wget -O delete-akun "https://${akcell}/hapus/delete-akun.sh"
+wget -O delete-vmess "https://${akcell}/hapus/delete-vmess.sh"
+wget -O menu-cek "https://${akcell}/menu-cek.sh"
+wget -O cek-vmess "https://${akcell}/cek/cek-vmess.sh"
 wget -O menu-pengaturan "https://${akcell}/menu-pengaturan.sh"
+wget -O menu-backup "https://${akcell}/menu-backup.sh"
+wget -O menu-update "https://${akcell}/menu-update.sh"
 wget -O menu-fix "https://${akcell}/menu-fix.sh"
 wget -O menu-domain "https://${akcell}/menu-domain.sh"
 wget -O certv2ray "https://${akcell}/fix/certv2ray.sh"
@@ -55,6 +57,8 @@ chmod +x add-vless
 chmod +x menu-hapus
 chmod +x delete-akun
 chmod +x delete-vmess
+chmod +x menu-cek
+chmod +x cek-vmess
 chmod +x menu-update
 chmod +x menu-pengaturan
 chmod +x menu-fix
