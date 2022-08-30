@@ -45,8 +45,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
 	done
 user=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
-sed -i "/^### $user $exp/,/^},{/d" /etc/xray/config.json
-sed -i "/^### $user $exp/,/^},{/d" /etc/xray/config.json
+hariini=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
+sed -i "/^### $user $exp $hariini $uuid/,/^},{/d" /etc/xray/config.json
+
 rm -f /etc/xray/vmess-$user-ws.json
 rm -f /etc/xray/vmess-$user-wstls.json
 rm -f /etc/xray/vmess-$user-grpc.json
@@ -54,7 +56,7 @@ systemctl restart xray.service
 clear
 echo ""
 echo "==============================="
-echo "  XRAYS/Vmess Account Deleted  "
+echo "${NC}${GREEN} VMESS AKUN BERHASIL DI HAPUS ${NC}"
 echo "==============================="
 echo "Username  : $user"
 echo "Expired   : $exp"
