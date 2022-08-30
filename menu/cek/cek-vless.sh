@@ -52,14 +52,14 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^## " "/etc/xray/config.json")
 			read -rp "Select one client [1-${NUMBER_OF_CLIENTS}]: " CLIENT_NUMBER
 		fi
 	done
-uuid=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 1 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 6 | sed -n "${CLIENT_NUMBER}"p)
 user=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 
 #linkvless
-vlesslinkws=""vless://${uuid}@${domain}:80?path=/xrayws&security=none&encryption=none&host=${domain}&type=ws#${user}"
-vlesslinkwstls="vless://${uuid}@${domain}:443?path=/xrayws&security=tls&encryption=none&host=${domain}&type=ws&sni=${domain}#${user}"
-vlesslinkgrpc="vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=${domain}#${user}"
+vlesslinkws="vless://${uuid}@${domain}:${nontls}?path=/xrayws&security=none&encryption=none&host=${domain}&type=ws#${user}"
+vlesslinkwstls="vless://${uuid}@${domain}:${tls}?path=/xrayws&security=tls&encryption=none&host=${domain}&type=ws&sni=${domain}#${user}"
+vlesslinkgrpc="vless://${uuid}@${domain}:${tls}?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=${domain}#${user}"
 clear
 echo -e ""
 echo -e "======-XRAYS/VLESS-======"
@@ -72,7 +72,7 @@ echo -e "User ID     : ${uuid}"
 echo -e "Alter ID    : 0"
 echo -e "Security    : auto"
 echo -e "Network     : ws/grpc"
-echo -e "Path        : /xrayvws/vmess-grpc"
+echo -e "Path        : /xrayws/vless-grpc"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
 echo -e "link   vless ws"
