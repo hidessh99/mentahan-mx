@@ -151,7 +151,7 @@ shadowsockslinkgrpc="ss://${shadowsocks_base64e}@$domain:$tls?plugin=xray-plugin
 systemctl restart xray
 rm -rf /tmp/log
 rm -rf /tmp/log1
-cat > /home/vps/public_html/ss-ws-$user.txt <<-END
+cat > /home/vps/public_html/ss-ws-$user.txt<<EOF
 { 
  "dns": {
     "servers": [
@@ -257,8 +257,8 @@ cat > /home/vps/public_html/ss-ws-$user.txt <<-END
   },
   "stats": {}
 }
-END
-cat > /home/vps/public_html/ss-grpc-$user.txt <<-END
+EOF
+cat > /home/vps/public_html/ss-grpc-$user.txt<<EOF
 {
     "dns": {
     "servers": [
@@ -362,7 +362,7 @@ cat > /home/vps/public_html/ss-grpc-$user.txt <<-END
   },
   "stats": {}
 }
-END
+EOF
 cd
 clear
 echo -e ""
