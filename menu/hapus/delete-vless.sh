@@ -52,7 +52,7 @@ systemctl restart xray.service
 clear
 echo ""
 echo "==============================="
-echo "${NC}${RED}  XRAYS/Vmess Account Deleted ${NC}"
+echo "${NC}${GREEN} VMESS AKUN BERHASIL DI HAPUS ${NC}"
 echo "==============================="
 echo "Username  : $user"
 echo "Expired   : $exp"
