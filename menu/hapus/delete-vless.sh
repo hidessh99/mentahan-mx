@@ -47,9 +47,6 @@ user=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIE
 exp=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 sed -i "/^## $user $exp/,/^},{/d" /etc/xray/config.json
 sed -i "/^## $user $exp/,/^},{/d" /etc/xray/config.json
-rm -f /etc/xray/vless-$user-ws.json
-rm -f /etc/xray/vless-$user-wstls.json
-rm -f /etc/xray/vless-$user-grpc.json
 systemctl restart xray.service
 clear
 echo ""
