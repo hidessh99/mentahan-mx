@@ -95,9 +95,9 @@ cat>/etc/xray/vmess-$user-grpc.json<<EOF
 EOF
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
-vmessws="vmess://$(base64 -w 0 /etc/xray/vmess-$user-ws.json)"
-vmesswstls="vmess://$(base64 -w 0 /etc/xray/vmess-$user-wstls.json)"
-vmessgrpc="vmess://$(base64 -w 0 /etc/xray/vmess-$user-grpc.json)"
+vmesslinkws="vmess://$(base64 -w 0 /etc/xray/vmess-$user-ws.json)"
+vmesslinkwstls="vmess://$(base64 -w 0 /etc/xray/vmess-$user-wstls.json)"
+vmesslinkgrpc="vmess://$(base64 -w 0 /etc/xray/vmess-$user-grpc.json)"
 systemctl restart xray.service
 service cron restart
 clear
@@ -117,17 +117,17 @@ echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
 echo -e "link   vmess ws"
 echo -e
-echo -e "${vmessws}"
+echo -e "${vmesslinkws}"
 echo -e
 echo -e "========================="
 echo -e "link   vmess ws"
 echo -e
-echo -e "${vmesswstls}"
+echo -e "${vmesslinkwstls}"
 echo -e
 echo -e "========================="
 echo -e "link vmess grpc"
 echo -e
-echo -e "${vmessgrpc}"
+echo -e "${vmesslinkgrpc}"
 echo -e
 echo -e "========================="
-echo -e "AKCELL XRAYMULTI"
+echo -e "AKCELL XRAY MULTI VMESS"
