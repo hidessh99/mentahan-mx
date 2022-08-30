@@ -60,7 +60,7 @@ cat>/etc/xray/vmess-$user-ws.json<<EOF
       "path": "/xrayvws",
       "type": "none",
       "host": "${domain}",
-      "tls": "tls"
+      "tls": ""
 }
 EOF
 cat>/etc/xray/vmess-$user-wstls.json<<EOF
@@ -87,7 +87,7 @@ cat>/etc/xray/vmess-$user-grpc.json<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "grpc",
-      "path": "/vmess-grpc",
+      "path": "vmess-grpc",
       "type": "none",
       "host": "${domain}",
       "tls": "tls"
