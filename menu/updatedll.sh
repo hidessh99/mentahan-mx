@@ -38,6 +38,7 @@ wget -O delete-vless "https://${akcell}/hapus/delete-vless.sh"
 wget -O delete-trojan "https://${akcell}/hapus/delete-trojan.sh"
 wget -O menu-cek "https://${akcell}/menu-cek.sh"
 wget -O cek-vmess "https://${akcell}/cek/cek-vmess.sh"
+wget -O cek-trojan "https://${akcell}/cek/cek-trojan.sh"
 wget -O cek-uservmess "https://${akcell}/cek/cek-uservmess.sh"
 wget -O menu-pengaturan "https://${akcell}/menu-pengaturan.sh"
 wget -O cek-port "https://${akcell}/pengaturan/cek-port.sh"
@@ -67,6 +68,7 @@ chmod +x delete-vless
 chmod +x delete-trojan
 chmod +x menu-cek
 chmod +x cek-vmess
+chmod +x cek-trojan
 chmod +x cek-uservmess
 chmod +x menu-update
 chmod +x menu-pengaturan
