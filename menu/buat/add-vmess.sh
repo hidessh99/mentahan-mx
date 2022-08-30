@@ -100,8 +100,9 @@ vmesslinkwstls="vmess://$(base64 -w 0 /etc/xray/vmess-$user-wstls.json)"
 vmesslinkgrpc="vmess://$(base64 -w 0 /etc/xray/vmess-$user-grpc.json)"
 systemctl restart xray.service
 service cron restart
+
 clear
-echo -e ""
+
 echo -e "======-XRAYS/VMESS-======"
 echo -e "Remarks     : ${user}"
 echo -e "IP/Host     : ${MYIP}"
@@ -115,12 +116,13 @@ echo -e "Network     : ws/grpc"
 echo -e "Path        : /xrayvws/vmess-grpc"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
+echo -e "========================="
 echo -e "link   vmess ws"
 echo -e
 echo -e "${vmesslinkws}"
 echo -e
 echo -e "========================="
-echo -e "link   vmess ws"
+echo -e "link   vmess ws tls"
 echo -e
 echo -e "${vmesslinkwstls}"
 echo -e
