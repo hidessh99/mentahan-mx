@@ -18,7 +18,7 @@ akcell="raw.githubusercontent.com/arismuslimin/xraymulti/main/menu"
 
 apt install rclone -y
 printf "q\n" | rclone config
-wget -O /root/.config/rclone/rclone.conf "https://${akbarvpn}/backup/rclone.conf"
+wget -O /root/.config/rclone/rclone.conf "https://${akcell}/backup/rclone.conf"
 git clone https://github.com/magnific0/wondershaper.git
 cd wondershaper
 make install
