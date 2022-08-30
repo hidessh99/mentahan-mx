@@ -47,6 +47,8 @@ user=$(grep -E "^#### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CL
 exp=$(grep -E "^#### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 sed -i "/^#### $user $exp/,/^},{/d" /etc/xray/config.json
 sed -i "/^#### $user $exp/,/^},{/d" /etc/xray/config.json
+rm -f /home/vps/public_html/ss-ws-$user.txt
+rm -f /home/vps/public_html/ss-grpc-$user.txt
 systemctl restart xray.service
 clear
 echo ""
