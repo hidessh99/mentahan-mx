@@ -47,7 +47,9 @@ user=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLI
 exp=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 sed -i "/^### $user $exp/,/^},{/d" /etc/xray/config.json
 sed -i "/^### $user $exp/,/^},{/d" /etc/xray/config.json
-rm -f /etc/xray/vmess-$user-ws.json /etc/xray/vmess-$user-grpc.json
+rm -f /etc/xray/vmess-$user-ws.json
+rm -f /etc/xray/vmess-$user-wstls.json
+rm -f /etc/xray/vmess-$user-grpc.json
 systemctl restart xray.service
 clear
 echo ""
@@ -59,5 +61,8 @@ echo "Expired   : $exp"
 echo "==============================="
 echo "AKCELL XRAY MULTI"
 
+*)
+;;
 clear
 menu-hapus
+else
