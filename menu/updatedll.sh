@@ -36,14 +36,15 @@ wget -O menu-cek "https://${akcell}/menu-cek.sh"
 wget -O cek-vmess "https://${akcell}/cek/cek-vmess.sh"
 wget -O cek-uservmess "https://${akcell}/cek/cek-uservmess.sh"
 wget -O menu-pengaturan "https://${akcell}/menu-pengaturan.sh"
+wget -O cek-port "https://${akcell}/pengaturan/cek-port.sh"
 wget -O menu-backup "https://${akcell}/menu-backup.sh"
 wget -O menu-update "https://${akcell}/menu-update.sh"
 wget -O menu-fix "https://${akcell}/menu-fix.sh"
-wget -O menu-domain "https://${akcell}/menu-domain.sh"
 wget -O certv2ray "https://${akcell}/fix/certv2ray.sh"
 wget -O restart-xray "https://${akcell}/fix/restart-xray.sh"
+wget -O menu-domain "https://${akcell}/menu-domain.sh"
 wget -O auto-pointing "https://${akcell}/domain/auto-pointing.sh"
-wget -O cek-port "https://${akcell}/pengaturan/cek-port.sh"
+
 
 # permision
 chmod +x /usr/bin/updatedll
@@ -63,11 +64,11 @@ chmod +x cek-vmess
 chmod +x cek-uservmess
 chmod +x menu-update
 chmod +x menu-pengaturan
+chmod +x cek-port
 chmod +x menu-fix
-chmod +x menu-domain
 chmod +x certv2ray
 chmod +x restart-xray
+chmod +x menu-domain
 chmod +x auto-pointing
-chmod +x cek-port
 
 cd
