@@ -52,9 +52,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^## " "/etc/xray/config.json")
 			read -rp "Select one client [1-${NUMBER_OF_CLIENTS}]: " CLIENT_NUMBER
 		fi
 	done
-uuid=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 6 | sed -n "${CLIENT_NUMBER}"p)
-user=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
-exp=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
+user=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
+exp=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
+hariini=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
 
 #linkvless
 vlesslinkws="vless://${uuid}@${domain}:${nontls}?path=/xrayws&security=none&encryption=none&host=${domain}&type=ws#${user}"
@@ -76,12 +77,12 @@ echo -e "Path        : /xrayws/vless-grpc"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
 echo -e "link   vless ws"
-echo -e "${vlesslinkws}"
+echo -e "${NC}${GREEN} ${vlesslinkws} ${NC}"
 echo -e "========================="
 echo -e "link   vless ws"
-echo -e "${vlesslinkwstls}"
+echo -e "${NC}${ORENGE} ${vlesslinkwstls} ${NC}"
 echo -e "========================="
 echo -e "link vless grpc"
-echo -e "${vlesslinkgrpc}"
+echo -e "${NC}${BLUE} ${vlesslinkgrpc} ${NC}"
 echo -e "========================="
 echo -e "AKCELL XRAY MULTI VLESS"
