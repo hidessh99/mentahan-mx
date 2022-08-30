@@ -29,6 +29,8 @@ else
 domain=$IP
 fi
 tr="$(cat ~/log-install.txt | grep -w "Trojan WS " | cut -d: -f2|sed 's/ //g')"
+tls="$(cat ~/log-install.txt | grep -w "VMESS WS TLS" | cut -d: -f2|sed 's/ //g')"
+nontls="$(cat ~/log-install.txt | grep -w "VMESS WS HTTP" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;41;36m           XRAY ALL ACCOUNT          \E[0m"
@@ -70,22 +72,69 @@ sed -i '/#vmess$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vmessgrpc$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-
+cat>/etc/xray/vmess-$user-ws.json<<EOF
+      {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
+      "port": "${nontls}",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
+      "path": "/xrayvws",
+      "type": "none",
+      "host": "${domain}",
+      "tls": ""
+}
+EOF
+cat>/etc/xray/vmess-$user-wstls.json<<EOF
+      {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
+      "port": "${tls}",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
+      "path": "/xrayvws",
+      "type": "none",
+      "host": "${domain}",
+      "tls": "tls"
+}
+EOF
+cat>/etc/xray/vmess-$user-grpc.json<<EOF
+      {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
+      "port": "${tls}",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "grpc",
+      "path": "vmess-grpc",
+      "type": "none",
+      "host": "${domain}",
+      "tls": "tls"
+}
+EOF
 systemctl restart xray
 
 #buatlinkvless
-vlesslinkws="vless://${uuid}@${domain}:443?path=/xrayws&security=tls&encryption=none&type=ws#${user}"
-vlesslinknon="vless://${uuid}@${domain}:80?path=/xrayws&encryption=none&type=ws#${user}"
-vlesslinkgrpc="vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
+vlesslinkws=""vless://${uuid}@${domain}:80?path=/xrayws&security=none&encryption=none&host=${domain}&type=ws#${user}"
+vlesslinkwstls="vless://${uuid}@${domain}:443?path=/xrayws&security=tls&encryption=none&host=${domain}&type=ws&sni=${domain}#${user}"
+vlesslinkgrpc="vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=${domain}#${user}"
 
 #buatlinkvmess
-vmesslinkws="vmess://${uuid}@${domain}:443?path=/xrayvws&security=tls&encryption=none&type=ws#${user}"
-vmesslinknon="vmess://${uuid}@${domain}:80?path=/xrayvws&encryption=none&type=ws#${user}"
-vmesslinkgrpc="vmess://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vmess-grpc&sni=bug.com#${user}"
+vmess_base641=$( base64 -w 0 <<< $vmess_json1)
+vmess_base642=$( base64 -w 0 <<< $vmess_json2)
+vmesslinkws="vmess://$(base64 -w 0 /etc/xray/vmess-$user-ws.json)"
+vmesslinkwstls="vmess://$(base64 -w 0 /etc/xray/vmess-$user-wstls.json)"
+vmesslinkgrpc="vmess://$(base64 -w 0 /etc/xray/vmess-$user-grpc.json)"
 
 #buatlinktrojan
-trojanlinkgrpc="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
-trojanlinkws="trojan://${uuid}@${domain}:443?path=/xraytrojanws&security=tls&host=bug.com&type=ws&sni=bug.com#${user}"
+trojanlinkws="trojan://${uuid}@${domain}:443?path=/xraytrojanws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+trojanlinkgrpc="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=${domain}#${user}"
+
 
 #buatshadowsocks
 cipher="aes-128-gcm"
@@ -384,3 +433,44 @@ echo -e "━━━━━━━━━━━━━━━━━━━━━━━�
 echo -e "SCRIPT XRAYMULTI" | tee -a /etc/log-create-user.log
 echo "" | tee -a /etc/log-create-user.log
 cd
+clear
+echo -e ""
+echo -e "======-VMESS/VLESS/TROJAN-GO/SHADOWSHOCK-======"
+echo -e "Remarks     : ${user}"
+echo -e "IP/Host     : ${MYIP}"
+echo -e "Address     : ${domain}"
+echo -e "Port TLS    : ${tls}"
+echo -e "Port No TLS : ${nontls}"
+echo -e "User ID     : ${uuid}"
+echo -e "Alter ID    : 0"
+echo -e "Security    : auto"
+echo -e "Network     : ws/grpc"
+echo -e "Path ws     : /xrayvws/xrayws/xraytrojanws"
+echo -e "Path grpc   : /vmess-grpc/vless-grpc/trojan-grpc"
+echo -e "Created     : $hariini"
+echo -e "Expired     : $exp"
+echo -e "link   vmess ws"
+echo -e
+echo -e "${vmesslinkws}"
+echo -e
+echo -e "========================="
+echo -e "link   vmess ws tls"
+echo -e
+echo -e "${vmesslinkwstls}"
+echo -e
+echo -e "========================="
+echo -e "link vmess grpc"
+echo -e
+echo -e "${vmesslinkgrpc}"
+echo -e
+echo -e "========================="
+echo -e "link vless WS"
+echo -e "${vlesslinkws}"
+echo -e "========================="
+echo -e "link vless WS tls"
+echo -e "${vlesslinkwstls}"
+echo -e "========================="
+echo -e "link vless grpc"
+echo -e "${vlesslinkgrpc}"
+echo -e "========================="
+echo -e "AKCELL XRAYMULTI"
