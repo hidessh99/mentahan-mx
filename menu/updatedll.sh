@@ -34,6 +34,7 @@ wget -O delete-akun "https://${akcell}/hapus/delete-akun.sh"
 wget -O delete-vmess "https://${akcell}/hapus/delete-vmess.sh"
 wget -O menu-cek "https://${akcell}/menu-cek.sh"
 wget -O cek-vmess "https://${akcell}/cek/cek-vmess.sh"
+wget -O cek-uservmess "https://${akcell}/cek/cek-uservmess.sh"
 wget -O menu-pengaturan "https://${akcell}/menu-pengaturan.sh"
 wget -O menu-backup "https://${akcell}/menu-backup.sh"
 wget -O menu-update "https://${akcell}/menu-update.sh"
@@ -59,6 +60,7 @@ chmod +x delete-akun
 chmod +x delete-vmess
 chmod +x menu-cek
 chmod +x cek-vmess
+chmod +x cek-uservmess
 chmod +x menu-update
 chmod +x menu-pengaturan
 chmod +x menu-fix
