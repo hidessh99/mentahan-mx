@@ -28,8 +28,8 @@ domain=$(cat /etc/xray/domain)
 else
 domain=$IP
 fi
-tls="$(cat ~/log-install.txt | grep -w "Vless TLS" | cut -d: -f2|sed 's/ //g')"
-nontls="$(cat ~/log-install.txt | grep -w "Vless None TLS" | cut -d: -f2|sed 's/ //g')"
+tls="$(cat ~/log-install.txt | grep -w "VLESS WS TLS" | cut -d: -f2|sed 's/ //g')"
+nontls="$(cat ~/log-install.txt | grep -w "VLESS WS HTTP" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		read -rp "Username : " -e user
 		CLIENT_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
@@ -44,12 +44,15 @@ uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#xray-vless-tls$/a\#### '"$user $exp"'\
+sed -i '/#xray-vless-tls$/a\## '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#xray-vless-nontls$/a\#### '"$user $exp"'\
+sed -i '/#xray-vless-nontls$/a\## '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-xrayvless1="vless://${uuid}@${domain}:$tls?path=/vless/&security=tls&encryption=none&type=ws#${user}"
-xrayvless2="vless://${uuid}@${domain}:$nontls?path=/vless/&encryption=none&type=ws#${user}"
+
+#buatlinkvless
+vlesslinkws=""vless://${uuid}@${domain}:80?path=/xrayws&security=none&encryption=none&host=${domain}&type=ws#${user}"
+vlesslinkwstls="vless://${uuid}@${domain}:443?path=/xrayws&security=tls&encryption=none&host=${domain}&type=ws&sni=${domain}#${user}"
+vlesslinkgrpc="vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=${domain}#${user}"
 systemctl restart xray.service
 service cron restart
 clear
@@ -62,13 +65,18 @@ echo -e "Port TLS    : $tls"
 echo -e "Port No TLS : $nontls"
 echo -e "User ID     : ${uuid}"
 echo -e "Encryption  : none"
-echo -e "Network     : ws"
-echo -e "Path        : /vless/"
+echo -e "Network     : ws/grpc"
+echo -e "Path        : /xrayws/vless-grpc"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
 echo -e "========================="
-echo -e "Link TLS    : ${xrayvless1}"
+echo -e "link vless ws"
+echo -e "${vlesslinkws}"
 echo -e "========================="
-echo -e "Link No TLS : ${xrayvless2}"
+echo -e "link vless ws tls"
+echo -e "${vlesslinkwstls}"
+echo -e "========================="
+echo -e "link vless grpc"
+echo -e "${vlesslinkgrpc}"
 echo -e "========================="
 echo -e "Script XRAYMULTI"
