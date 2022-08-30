@@ -30,12 +30,13 @@ wget -O menu-buat "https://${akcell}/menu-buat.sh"
 wget -O add-akun "https://${akcell}/buat/add-akun.sh"
 wget -O add-vmess "https://${akcell}/buat/add-vmess.sh"
 wget -O add-vless "https://${akcell}/buat/add-vless.sh"
+wget -O delete-akun "https://${akcell}/hapus/delete-akun.sh"
 wget -O menu-hapus "https://${akcell}/menu-hapus.sh"
+wget -O delete-vmess "https://${akcell}/delete-vmess.sh"
 wget -O menu-update "https://${akcell}/menu-update.sh"
 wget -O menu-pengaturan "https://${akcell}/menu-pengaturan.sh"
 wget -O menu-fix "https://${akcell}/menu-fix.sh"
 wget -O menu-domain "https://${akcell}/menu-domain.sh"
-wget -O delete-akun "https://${akcell}/hapus/delete-akun.sh"
 wget -O certv2ray "https://${akcell}/fix/certv2ray.sh"
 wget -O restart-xray "https://${akcell}/fix/restart-xray.sh"
 wget -O auto-pointing "https://${akcell}/domain/auto-pointing.sh"
@@ -48,15 +49,16 @@ chmod +x updatedll
 chmod +x xmenu
 chmod +x menu-backup
 chmod +x menu-buat
+chmod +x add-akun
 chmod +x add-vmess
 chmod +x add-vless
 chmod +x menu-hapus
+chmod +x delete-akun
+chmod +x delete-vmess
 chmod +x menu-update
 chmod +x menu-pengaturan
 chmod +x menu-fix
 chmod +x menu-domain
-chmod +x add-akun
-chmod +x delete-akun
 chmod +x certv2ray
 chmod +x restart-xray
 chmod +x auto-pointing
