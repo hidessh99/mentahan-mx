@@ -35,6 +35,7 @@ wget -O add-vless "https://${akcell}/buat/add-vless.sh"
 wget -O menu-hapus "https://${akcell}/menu-hapus.sh"
 wget -O delete-akun "https://${akcell}/hapus/delete-akun.sh"
 wget -O delete-vmess "https://${akcell}/hapus/delete-vmess.sh"
+wget -O delete-ss "https://${akcell}/hapus/delete-ss.sh"
 wget -O delete-vless "https://${akcell}/hapus/delete-vless.sh"
 wget -O delete-trojan "https://${akcell}/hapus/delete-trojan.sh"
 wget -O menu-cek "https://${akcell}/menu-cek.sh"
@@ -69,6 +70,7 @@ chmod +x delete-akun
 chmod +x delete-vmess
 chmod +x delete-vless
 chmod +x delete-trojan
+chmod +x delete-ss
 chmod +x menu-cek
 chmod +x cek-trojan
 chmod +x cek-vmess
