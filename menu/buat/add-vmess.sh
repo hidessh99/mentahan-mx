@@ -45,10 +45,10 @@ read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 ws="vmess"
-gr="vmessgrpc"
-sed -i '/#$ws$/a\### '"$user $exp $hariini $sw $uuid"'\
+gr="grpc"
+sed -i '/#vmessws$/a\### '"$user $exp $hariini $uuid $ws"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#$gr$/a\### '"$user $exp $hariini $gr $uuid"'\
+sed -i '/#vmeesgrpc$/a\### '"$user $exp $hariini $uuid $sw $gr"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 cat>/etc/xray/vmess-$user-ws.json<<EOF
       {
