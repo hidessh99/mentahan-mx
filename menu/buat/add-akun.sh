@@ -58,19 +58,19 @@ uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 
-sed -i '/#trojanws$/a\# '"$user $exp"'\
+sed -i '/#trojanws$/a\# '"$user $exp $hariini $uuid"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#trojangrpc$/a\# '"$user $exp"'\
+sed -i '/#trojangrpc$/a\# '"$user $exp $hariini $uuid"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
-sed -i '/#vless$/a\## '"$user $exp"'\
+sed -i '/#vless$/a\## '"$user $exp $hariini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vlessgrpc$/a\## '"$user $exp"'\
+sed -i '/#vlessgrpc$/a\## '"$user $exp $hariini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
-sed -i '/#vmess$/a\### '"$user $exp"'\
+sed -i '/#vmess$/a\### '"$user $exp $hariini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vmessgrpc$/a\### '"$user $exp"'\
+sed -i '/#vmessgrpc$/a\### '"$user $exp $hariini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 cat>/etc/xray/vmess-$user-ws.json<<EOF
       {
@@ -138,9 +138,9 @@ trojanlinkgrpc="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&s
 
 #buatshadowsocks
 cipher="aes-128-gcm"
-sed -i '/#ssws$/a\#### '"$user $exp"'\
+sed -i '/#ssws$/a\#### '"$user $exp $hariini $uuid"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#ssgrpc$/a\#### '"$user $exp"'\
+sed -i '/#ssgrpc$/a\#### '"$user $exp $hariini $uuid"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
 echo $cipher:$uuid > /tmp/log
 shadowsocks_base64=$(cat /tmp/log)
@@ -382,43 +382,43 @@ echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
 echo -e "link   vmess ws"
 echo -e
-echo -e "${vmesslinkws}"
+echo -e "${NC}${GREEN} ${vmesslinkws} ${NC}"
 echo -e
 echo -e "========================="
 echo -e "link   vmess ws tls"
 echo -e
-echo -e "${vmesslinkwstls}"
+echo -e "${NC}${ORANGE} ${vmesslinkwstls} ${NC}"
 echo -e
 echo -e "========================="
 echo -e "link vmess grpc"
 echo -e
-echo -e "${vmesslinkgrpc}"
+echo -e "${NC}${BLUE} ${vmesslinkgrpc} ${NC}"
 echo -e
 echo -e "========================="
 echo -e "link vless WS"
-echo -e "${vlesslinkws}"
+echo -e "${NC}${GREEN} ${vlesslinkws} ${NC}"
 echo -e "========================="
 echo -e "link vless WS tls"
-echo -e "${vlesslinkwstls}"
+echo -e "${NC}${ORANGE} ${vlesslinkwstls} ${NC}"
 echo -e "========================="
 echo -e "link vless grpc"
-echo -e "${vlesslinkgrpc}"
+echo -e "${NC}${BLUE}${vlesslinkgrpc} ${NC}"
 echo -e "========================="
 echo -e "link trojan WS tls"
-echo -e "${trojanlinkwstls}"
+echo -e "${NC}${ORANGE} ${trojanlinkwstls} ${NC}"
 echo -e "========================="
 echo -e "link trojan grpc"
-echo -e "${trojanlinkgrpc}"
+echo -e "${NC}${BLUE} ${trojanlinkgrpc} ${NC}"
 echo -e "========================="
 echo -e "link shadowshock"
-echo -e "${shadowsockslink}"
+echo -e "${NC}${ORANGE} ${shadowsockslink} ${NC}"
 echo -e "========================="
 echo -e "link shadowshock grpc"
-echo -e "${shadowsockslinkgrpc}"
+echo -e "${NC}${BLUE} ${shadowsockslinkgrpc} ${NC}"
 echo -e "========================="
 echo -e "======Custom Import Config From URL ======="
-echo -e "URL Custom Config WS TLS   : http://${domain}:89/ss-ws-$user.txt" 
-echo -e "URL Custom Config GRPC TLS : http://${domain}:89/ss-grpc-$user.txt" 
+echo -e "URL Custom Config WS TLS   : ${NC}${ORANGE} http://${domain}:89/ss-ws-$user.txt ${NC}" 
+echo -e "URL Custom Config GRPC TLS : ${NC}${BLUE} http://${domain}:89/ss-grpc-$user.txt ${NC}" 
 echo -e "===================================================="
 echo -e                "AKCELL XRAY MULTI AKUN"
 echo -e "===================================================="
