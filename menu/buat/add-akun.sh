@@ -52,10 +52,10 @@ clear
 			xmenu
 		fi
 	done
-	
-#buatakun
+#notes	
 uuid=$(cat /proc/sys/kernel/random/uuid)
-read -p "Expired (days): " masaaktif
+read -p "Expired (Days) : " masaaktif
+hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 #buattrojan
 sed -i '/#trojanws$/a\# '"$user $exp $hariini $uuid"'\
