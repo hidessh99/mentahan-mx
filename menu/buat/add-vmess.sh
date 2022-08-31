@@ -46,9 +46,9 @@ hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 ws="vmess"
 gr="grpc"
-sed -i '/#vmessws$/a\### '"$user $exp $hariini $uuid $ws"'\
+sed -i '/#vmess$/a\### '"$user $exp $hariini $uuid $ws"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vmeesgrpc$/a\### '"$user $exp $hariini $uuid $ws $gr"'\
+sed -i '/#vmessgrpc$/a\### '"$user $exp $hariini $uuid $ws $gr"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 cat>/etc/xray/vmess-$user-ws.json<<EOF
       {
