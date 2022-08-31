@@ -34,7 +34,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^#-^#### " "/etc/xray/config.json")
 	echo " Select the existing client you want to remove"
 	echo " Press CTRL+C to return"
 	echo " ==============================="
-	echo "     No  Expired   User"
+	echo "     No    User  Expired"
+	grep -E "^#-^# " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
+	grep -E "^#-^## " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
+	grep -E "^#-^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 	grep -E "^#-^#### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
@@ -43,9 +46,26 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^#-^#### " "/etc/xray/config.json")
 			read -rp "Select one client [1-${NUMBER_OF_CLIENTS}]: " CLIENT_NUMBER
 		fi
 	done
-user=$(grep -E "^#-^#### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
-exp=$(grep -E "^#-^#### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
-sed -i "/^#-^#### $user $exp/,/^},{/d" /etc/xray/config.json
+user=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
+user=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
+user=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
+user=$(grep -E "^#### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
+exp=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
+exp=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
+exp=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
+exp=$(grep -E "^#### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
+hariini=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+hariini=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+hariini=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+hariini=$(grep -E "^#### " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^#### " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
+sed -i "/^# $user $exp $hariini $uuid/,/^},{/d" /etc/xray/config.json
+sed -i "/^## $user $exp $hariini $uuid/,/^},{/d" /etc/xray/config.json
+sed -i "/^### $user $exp $hariini $uuid/,/^},{/d" /etc/xray/config.json
+sed -i "/^#### $user $exp $hariini $uuid/,/^},{/d" /etc/xray/config.json
 rm -f /etc/xray/vmess-$user-ws.json
 rm -f /etc/xray/vmess-$user-wstls.json
 rm -f /etc/xray/vmess-$user-grpc.json
@@ -56,11 +76,12 @@ service cron restart
 clear
 echo ""
 echo "==============================="
-echo "  XRAYS/Vless Account Deleted  "
+echo " ${NC}${GREEN} XRAY MULTI AKUN BERHASIL DI HAPUS ${NC}"
 echo "==============================="
 echo "Username  : $user"
 echo "Expired   : $exp"
 echo "==============================="
-echo "Script Mod akcell"
+echo "AKCELL MULTI AKUN"
+sleep 3
 clear
 menu-hapus
