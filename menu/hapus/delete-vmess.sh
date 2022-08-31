@@ -47,10 +47,10 @@ user=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLI
 exp=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 hariini=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 uuid=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
-ws=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 6 | sed -n "${CLIENT_NUMBER}"p)
-gr=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 7 | sed -n "${CLIENT_NUMBER}"p)
-sed -i "/^### $user $exp $hariini $uuid $ws/,/^},{/d" /etc/xray/config.json
-sed -i "/^### $user $exp $hariini $uuid $ws $gr/,/^},{/d" /etc/xray/config.json
+v=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 6 | sed -n "${CLIENT_NUMBER}"p)
+g=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 7 | sed -n "${CLIENT_NUMBER}"p)
+sed -i "/^### $user $exp $hariini $uuid $v/,/^},{/d" /etc/xray/config.json
+sed -i "/^### $user $exp $hariini $uuid $v $g/,/^},{/d" /etc/xray/config.json
 rm -f /etc/xray/vmess-$user-ws.json
 rm -f /etc/xray/vmess-$user-wstls.json
 rm -f /etc/xray/vmess-$user-grpc.json
