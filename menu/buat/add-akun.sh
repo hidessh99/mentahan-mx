@@ -371,7 +371,6 @@ shadowsockslink="ss://${shadowsocks_base64e}@$domain:$tls?plugin=xray-plugin;mux
 shadowsockslinkgrpc="ss://${shadowsocks_base64e}@$domain:$tls?plugin=xray-plugin;mux=0;serviceName=ss-grpc;host=$domain;tls#${user}"
 #buat text all link
 cat > /home/vps/public_html/xraymultiakun-$user.txt<<EOF
-{
 $trojanlinkwstls
 $trojanlinkwsgrpc
 $vlesslinkws
@@ -380,7 +379,6 @@ $vlesslinkgrpc
 $vmesslinkws
 $vmesslinkwstls
 $vmesslinkgrpc
-}
 EOF
 clear
 echo -e ""
