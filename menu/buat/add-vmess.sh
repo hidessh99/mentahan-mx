@@ -48,7 +48,7 @@ ws="vmess"
 gr="grpc"
 sed -i '/#vmessws$/a\### '"$user $exp $hariini $uuid $ws"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vmeesgrpc$/a\### '"$user $exp $hariini $uuid $sw $gr"'\
+sed -i '/#vmeesgrpc$/a\### '"$user $exp $hariini $uuid $ws $gr"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 cat>/etc/xray/vmess-$user-ws.json<<EOF
       {
