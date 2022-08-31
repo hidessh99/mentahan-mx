@@ -44,7 +44,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
 	echo " Press CTRL+C to return"
 	echo " ==============================="
 	echo "     No     User     Expired	vpn"
-	grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3-5 | nl -s ') '
+	grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2-7 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
 			read -rp "Select one client [1]: " CLIENT_NUMBER
