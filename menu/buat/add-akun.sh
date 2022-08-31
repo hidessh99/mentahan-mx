@@ -373,7 +373,7 @@ shadowsockslinkgrpc="ss://${shadowsocks_base64e}@$domain:$tls?plugin=xray-plugin
 clear
 cat > /home/vps/public_html/xraymultiakun-$user.txt<<EOF
 ${trojanlinkwstls}
-${trojanlinkwsgrpc}
+${trojanlinkgrpc}
 ${vlesslinkws}
 ${vlesslinkwstls}
 ${vlesslinkgrpc}
@@ -439,7 +439,7 @@ echo -e "======Custom Import Config From URL ======="
 echo -e "URL Custom Config WS TLS   : ${NC}${ORANGE} http://${domain}:89/ss-ws-$user.txt ${NC}" 
 echo -e "URL Custom Config GRPC TLS : ${NC}${BLUE} http://${domain}:89/ss-grpc-$user.txt ${NC}"
 echo -e "======Custom Import Config From URL ======="
-echo -e "URL all trojan-vless-vmess : ${NC}${RED} http://${domain}:89/xraymultiakun-$user.txt ${NC}" 
+echo -e "URL V2RAYNG all trojan-vless-vmess : ${NC}${RED} http://${domain}:89/xraymultiakun-$user.txt ${NC}" 
 echo -e "===================================================="
 echo -e                "AKCELL XRAY MULTI AKUN"
 echo -e "===================================================="
