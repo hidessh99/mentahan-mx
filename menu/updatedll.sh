@@ -93,3 +93,5 @@ chmod +x menu-domain
 chmod +x auto-pointing
 
 cd
+clear
+clear
