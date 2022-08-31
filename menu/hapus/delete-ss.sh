@@ -18,7 +18,7 @@ if [ $MYIP = $MYIP ]; then
 echo -e "${NC}${GREEN}Permission Accepted...${NC}"
 else
 echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Fuck You!!"
+echo -e "${NC}${LIGHT}SABAR GAN!!"
 exit 0
 fi
 clear
@@ -45,15 +45,16 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^#### " "/etc/xray/config.json")
 	done
 user=$(grep -E "^#### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^#### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
-sed -i "/^#### $user $exp/,/^},{/d" /etc/xray/config.json
-sed -i "/^#### $user $exp/,/^},{/d" /etc/xray/config.json
+hariini=$(grep -E "^#### " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^#### " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
+sed -i "/^#### $user $exp $hariini $uuid/,/^},{/d" /etc/xray/config.json
 rm -f /home/vps/public_html/ss-ws-$user.txt
 rm -f /home/vps/public_html/ss-grpc-$user.txt
 systemctl restart xray.service
 clear
 echo ""
 echo "==============================="
-echo "  XRAYS/SHADOWSOCK Account Deleted  "
+echo -e ${NC}${GREEN} AKUN SHADOWSOCK BERHASIL DI HAPUS ${NC}
 echo "==============================="
 echo "Username  : $user"
 echo "Expired   : $exp"
