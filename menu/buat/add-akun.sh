@@ -57,20 +57,25 @@ uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
+t="trojan"
+v="vmess"
+l="vless
+s="shadowsock"
+g="grpc"
 #buattrojan
-sed -i '/#trojanws$/a\# '"$user $exp $hariini $uuid"'\
+sed -i '/#trojanws$/a\# '"$user $exp $hariini $uuid $t"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#trojangrpc$/a\# '"$user $exp $hariini $uuid"'\
+sed -i '/#trojangrpc$/a\# '"$user $exp $hariini $uuid $t $g"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 #buatvless
-sed -i '/#vless$/a\## '"$user $exp $hariini $uuid"'\
+sed -i '/#vless$/a\## '"$user $exp $hariini $uuid $l"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vlessgrpc$/a\## '"$user $exp $hariini $uuid"'\
+sed -i '/#vlessgrpc$/a\## '"$user $exp $hariini $uuid $l $g"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 #buatvmess
-sed -i '/#vmess$/a\### '"$user $exp $hariini $uuid"'\
+sed -i '/#vmess$/a\### '"$user $exp $hariini $uuid $v"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vmessgrpc$/a\### '"$user $exp $hariini $uuid"'\
+sed -i '/#vmessgrpc$/a\### '"$user $exp $hariini $uuid $v $g"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 cat>/etc/xray/vmess-$user-ws.json<<EOF
       {
@@ -119,9 +124,9 @@ cat>/etc/xray/vmess-$user-grpc.json<<EOF
 EOF
 #buatshadowsocks
 cipher="aes-128-gcm"
-sed -i '/#ssws$/a\#### '"$user $exp $hariini $uuid"'\
+sed -i '/#ssws$/a\#### '"$user $exp $hariini $uuid $s"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#ssgrpc$/a\#### '"$user $exp $hariini $uuid"'\
+sed -i '/#ssgrpc$/a\#### '"$user $exp $hariini $uuid $s $g"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
 
 systemctl restart xray
@@ -344,6 +349,7 @@ cd
 #buatlinktrojan
 trojanlinkwstls="trojan://${uuid}@${domain}:443?path=/xraytrojanws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 trojanlinkgrpc="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=${domain}#${user}"
+
 #buatlinkvless
 vlesslinkws="vless://${uuid}@${domain}:80?path=/xrayws&security=none&encryption=none&host=${domain}&type=ws#${user}"
 vlesslinkwstls="vless://${uuid}@${domain}:443?path=/xrayws&security=tls&encryption=none&host=${domain}&type=ws&sni=${domain}#${user}"
@@ -363,7 +369,19 @@ echo -n "${shadowsocks_base64}" | base64 > /tmp/log1
 shadowsocks_base64e=$(cat /tmp/log1)
 shadowsockslink="ss://${shadowsocks_base64e}@$domain:$tls?plugin=xray-plugin;mux=0;path=/xrayssws;host=$domain;tls#${user}"
 shadowsockslinkgrpc="ss://${shadowsocks_base64e}@$domain:$tls?plugin=xray-plugin;mux=0;serviceName=ss-grpc;host=$domain;tls#${user}"
-
+#buat text all link
+cat > /home/vps/public_html/xraymultiakun-$user.txt<<EOF
+{
+$trojanlinkwstls
+$trojanlinkwsgrpc
+$vlesslinkws
+$vlesslinkwstls
+$vlesslinkgrpc
+$vmesslinkws
+$vmesslinkwstls
+$vmesslinkgrpc
+}
+EOF
 clear
 echo -e ""
 echo -e "======-VMESS/VLESS/TROJAN-GO/SHADOWSHOCK-======"
@@ -419,7 +437,9 @@ echo -e "${NC}${BLUE} ${shadowsockslinkgrpc} ${NC}"
 echo -e "========================="
 echo -e "======Custom Import Config From URL ======="
 echo -e "URL Custom Config WS TLS   : ${NC}${ORANGE} http://${domain}:89/ss-ws-$user.txt ${NC}" 
-echo -e "URL Custom Config GRPC TLS : ${NC}${BLUE} http://${domain}:89/ss-grpc-$user.txt ${NC}" 
+echo -e "URL Custom Config GRPC TLS : ${NC}${BLUE} http://${domain}:89/ss-grpc-$user.txt ${NC}"
+echo -e "======Custom Import Config From URL ======="
+echo -e "URL all trojan-vless-vmess : ${NC}${RED} http://${domain}:89/xraymultiakun-$user.txt ${NC}" 
 echo -e "===================================================="
 echo -e                "AKCELL XRAY MULTI AKUN"
 echo -e "===================================================="
