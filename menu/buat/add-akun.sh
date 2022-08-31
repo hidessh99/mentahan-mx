@@ -370,16 +370,18 @@ shadowsocks_base64e=$(cat /tmp/log1)
 shadowsockslink="ss://${shadowsocks_base64e}@$domain:$tls?plugin=xray-plugin;mux=0;path=/xrayssws;host=$domain;tls#${user}"
 shadowsockslinkgrpc="ss://${shadowsocks_base64e}@$domain:$tls?plugin=xray-plugin;mux=0;serviceName=ss-grpc;host=$domain;tls#${user}"
 #buat text all link
+clear
 cat > /home/vps/public_html/xraymultiakun-$user.txt<<EOF
-$trojanlinkwstls
-$trojanlinkwsgrpc
-$vlesslinkws
-$vlesslinkwstls
-$vlesslinkgrpc
-$vmesslinkws
-$vmesslinkwstls
-$vmesslinkgrpc
+${trojanlinkwstls}
+${trojanlinkwsgrpc}
+${vlesslinkws}
+${vlesslinkwstls}
+${vlesslinkgrpc}
+${vmesslinkws}
+${vmesslinkwstls}
+${vmesslinkgrpc}
 EOF
+cd
 clear
 echo -e ""
 echo -e "======-VMESS/VLESS/TROJAN-GO/SHADOWSHOCK-======"
