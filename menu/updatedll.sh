@@ -91,7 +91,6 @@ chmod +x certv2ray
 chmod +x restart-xray
 chmod +x menu-domain
 chmod +x auto-pointing
-
+sleep 5
 cd
-clear
 clear
