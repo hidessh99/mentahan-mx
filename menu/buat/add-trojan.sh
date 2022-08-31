@@ -40,14 +40,20 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 			exit 1
 		fi
 	done
+#notes	
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-
-sed -i '/#trojanws$/a\# '"$user $exp $hariini $uuid"'\
+t="trojan"
+v="vmess"
+l="vless"
+s="shadowsock"
+g="grpc"
+#buatakun
+sed -i '/#trojanws$/a\# '"$user $exp $hariini $uuid $t"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#trojangrpc$/a\# '"$user $exp $hariini $uuid"'\
+sed -i '/#trojangrpc$/a\# '"$user $exp $hariini $uuid $t $g"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
 #buatlinktrojan
