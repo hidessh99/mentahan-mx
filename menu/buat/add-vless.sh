@@ -40,19 +40,27 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 			exit 1
 		fi
 	done
+#notes	
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#vless$/a\## '"$user $exp $hariini $uuid"'\
+t="trojan"
+v="vmess"
+l="vless"
+s="shadowsock"
+g="grpc"
+
+#buatakun
+sed -i '/#vless$/a\## '"$user $exp $hariini $uuid $l"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vlessgrpc$/a\## '"$user $exp $hariini $uuid"'\
+sed -i '/#vlessgrpc$/a\## '"$user $exp $hariini $uuid $l $g"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+#buatlink
 vlesslinkws="vless://${uuid}@${domain}:${nontls}?path=/xrayws&security=none&encryption=none&host=${domain}&type=ws#${user}"
 vlesslinkwstls="vless://${uuid}@${domain}:${tls}?path=/xrayws&security=tls&encryption=none&host=${domain}&type=ws&sni=${domain}#${user}"
 vlesslinkgrpc="vless://${uuid}@${domain}:${tls}?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=${domain}#${user}"
 systemctl restart xray.service
-service cron restart
 clear
 echo -e ""
 echo -e "======-XRAYS/VLESS-======"
