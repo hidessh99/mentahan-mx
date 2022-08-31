@@ -43,7 +43,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
 	echo " Select the existing client you want to remove"
 	echo " Press CTRL+C to return"
 	echo " ==============================="
-	echo -e	"${NC}	NO ${GREEN}USER   ${RED}EXPIRED	   ${BLUE}Net${NC}"
+	echo -e	"${NC} NO ${GREEN}USER   ${RED}EXPIRED	${BLUE}Net${NC}"
         grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2,3,6,7 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
