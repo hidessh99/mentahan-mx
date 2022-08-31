@@ -40,16 +40,21 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 			exit 1
 		fi
 	done
-#catatanakun
+#notes	
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
+t="trojan"
+v="vmess"
+l="vless"
+s="shadowsock"
+g="grpc"
 #buatshadowsocks
 cipher="aes-128-gcm"
-sed -i '/#ssws$/a\#### '"$user $exp $hariini $uuid"'\
+sed -i '/#ssws$/a\#### '"$user $exp $hariini $uuid $s"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#ssgrpc$/a\#### '"$user $exp $hariini $uuid"'\
+sed -i '/#ssgrpc$/a\#### '"$user $exp $hariini $uuid $s $g"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
 
 systemctl restart xray
