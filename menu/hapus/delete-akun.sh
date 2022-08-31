@@ -76,7 +76,7 @@ service cron restart
 clear
 echo ""
 echo "==============================="
-echo " ${NC}${GREEN} XRAY MULTI AKUN BERHASIL DI HAPUS ${NC}"
+echo "${NC}${GREEN}XRAY MULTI AKUN BERHASIL DI HAPUS${NC}"
 echo "==============================="
 echo "Username  : $user"
 echo "Expired   : $exp"
