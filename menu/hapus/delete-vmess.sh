@@ -35,7 +35,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
 	echo " Press CTRL+C to return"
 	echo " ==============================="
 	echo "     No   User    Expired"
-	grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
+	grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3-5 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
 			read -rp "Select one client [1]: " CLIENT_NUMBER
@@ -47,8 +47,10 @@ user=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLI
 exp=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 hariini=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 uuid=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
-sed -i "/^### $user $exp $hariini $uuid/,/^},{/d" /etc/xray/config.json
-
+ws=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 6 | sed -n "${CLIENT_NUMBER}"p)
+gr=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 7 | sed -n "${CLIENT_NUMBER}"p)
+sed -i "/^### $user $exp $hariini $uuid $ws/,/^},{/d" /etc/xray/config.json
+sed -i "/^### $user $exp $hariini $uuid $ws $gr/,/^},{/d" /etc/xray/config.json
 rm -f /etc/xray/vmess-$user-ws.json
 rm -f /etc/xray/vmess-$user-wstls.json
 rm -f /etc/xray/vmess-$user-grpc.json
@@ -56,7 +58,7 @@ systemctl restart xray.service
 clear
 echo ""
 echo "==============================="
-echo "${NC}${GREEN} VMESS AKUN BERHASIL DI HAPUS ${NC}"
+echo -e "${NC}${GREEN} VMESS AKUN BERHASIL DI HAPUS ${NC}"
 echo "==============================="
 echo "Username  : $user"
 echo "Expired   : $exp"
