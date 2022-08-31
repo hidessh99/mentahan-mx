@@ -23,6 +23,9 @@ exit 0
 fi
 clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^# " "/etc/xray/config.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^## " "/etc/xray/config.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^#### " "/etc/xray/config.json")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		echo ""
 		echo "You have no existing clients!"
@@ -36,9 +39,6 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^# " "/etc/xray/config.json")
 	echo " ==============================="
 	echo "     No    User  Expired"
 	grep -E "^#-^# " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
-	grep -E "^#-^## " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
-	grep -E "^#-^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
-	grep -E "^#-^#### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
 			read -rp "Select one client [1]: " CLIENT_NUMBER
