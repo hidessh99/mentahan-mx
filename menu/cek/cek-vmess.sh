@@ -59,9 +59,9 @@ uuid=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLI
 clear
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
-vmessws="vmess://$(base64 -w 0 /etc/xray/vmess-$user-ws.json)"
-vmesswstls="vmess://$(base64 -w 0 /etc/xray/vmess-$user-wstls.json)"
-vmessgrpc="vmess://$(base64 -w 0 /etc/xray/vmess-$user-grpc.json)"
+vmesslinkws="vmess://$(base64 -w 0 /etc/xray/vmess-$user-ws.json)"
+vmesslinkwstls="vmess://$(base64 -w 0 /etc/xray/vmess-$user-wstls.json)"
+vmesslinkgrpc="vmess://$(base64 -w 0 /etc/xray/vmess-$user-grpc.json)"
 
 clear
 echo -e ""
