@@ -56,6 +56,7 @@ rm -f /etc/xray/vmess-$user-wstls.json
 rm -f /etc/xray/vmess-$user-grpc.json
 rm -f /home/vps/public_html/ss-ws-$user.txt
 rm -f /home/vps/public_html/ss-grpc-$user.txt
+rm -f /home/vps/public_html/xraymultiakun$user.txt
 systemctl restart xray.service
 service cron restart
 clear
