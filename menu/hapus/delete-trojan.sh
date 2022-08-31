@@ -47,7 +47,7 @@ user=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIEN
 exp=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 hariini=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 uuid=$(grep -E "^# " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
-sed -i "/^## $user $exp $hariini $uuid/,/^},{/d" /etc/xray/config.json
+sed -i "/^# $user $exp $hariini $uuid/,/^},{/d" /etc/xray/config.json
 systemctl restart xray.service
 clear
 echo ""
