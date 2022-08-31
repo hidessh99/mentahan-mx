@@ -59,7 +59,7 @@ hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 t="trojan"
 v="vmess"
-l="vless
+l="vless"
 s="shadowsock"
 g="grpc"
 #buattrojan
