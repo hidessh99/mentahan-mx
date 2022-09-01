@@ -46,6 +46,8 @@ wget -O cek-vmess "https://${akcell}/cek/cek-vmess.sh"
 wget -O cek-trojan "https://${akcell}/cek/cek-trojan.sh"
 wget -O cek-ss "https://${akcell}/cek/cek-ss.sh"
 wget -O cek-uservmess "https://${akcell}/cek/cek-uservmess.sh"
+wget -O menu-config "https://${akcell}/cek/menu-config.sh"
+wget -O add-configws "https://${akcell}/cek/add-configws.sh"
 wget -O menu-pengaturan "https://${akcell}/menu-pengaturan.sh"
 wget -O cek-port "https://${akcell}/pengaturan/cek-port.sh"
 wget -O menu-backup "https://${akcell}/menu-backup.sh"
@@ -82,6 +84,8 @@ chmod +x cek-trojan
 chmod +x cek-vmess
 chmod +x cek-vless
 chmod +x cek-uservmess
+chmod +x add-configws
+chmod +x add-configsni
 chmod +x menu-update
 chmod +x menu-pengaturan
 chmod +x cek-port
