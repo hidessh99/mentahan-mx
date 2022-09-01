@@ -62,6 +62,13 @@ v="vmess"
 l="vless"
 s="shadowsock"
 g="grpc"
+#buatdatamultiakun
+cat>/etc/xray/config-multi.json<<EOF
+#multiakun
+EOF
+cd
+sed -i '/#multiakun$/a\# '"$user $exp $hariini $uuid $t"'\
+},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config-multi.json
 #buattrojan
 sed -i '/#trojanws$/a\# '"$user $exp $hariini $uuid $t"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
@@ -346,6 +353,7 @@ cat > /home/vps/public_html/ss-grpc-$user.txt<<EOF
 }
 EOF
 cd
+
 #buatlinktrojan
 trojanlinkwstls="trojan://${uuid}@${domain}:443?path=/xraytrojanws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 trojanlinkgrpc="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=${domain}#${user}"
