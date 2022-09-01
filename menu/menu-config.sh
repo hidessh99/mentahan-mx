@@ -124,9 +124,8 @@ echo -e "3. Buat Config WS"
 echo -e "4. Buat Config SNI"
 echo -e "5. Info Bug"
 echo -e "=============================="
-read -p "Select From Options [ 1 - 7 ] : " xmenu
-echo -e ""
-case $xmenu in 
+read -rp "Please Enter The Correct Number : " -e num
+case $num in
 1)
 bugws
 ;;
