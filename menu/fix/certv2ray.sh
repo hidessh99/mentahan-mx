@@ -28,7 +28,9 @@ bash acme.sh --issue --standalone -d $domain --force
 bash acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
 cd
 clear
-#restratxray
+
+sleep 3
+#restartxray
 systemctl daemon-reload
 systemctl enable xray
 systemctl restart xray
