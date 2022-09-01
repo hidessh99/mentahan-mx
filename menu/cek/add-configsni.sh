@@ -132,9 +132,9 @@ cd
 clear
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
-vmesslinkws="vmess://$(base64 -w 0 /etc/xray/configws-vmess-$user-ws.json)"
-vmesslinkwstls="vmess://$(base64 -w 0 /etc/xray/configws-vmess-$user-wstls.json)"
-vmesslinkgrpc="vmess://$(base64 -w 0 /etc/xray/configws-vmess-$user-grpc.json)"
+vmesslinkws="vmess://$(base64 -w 0 /etc/xray/configsni-vmess-$user-ws.json)"
+vmesslinkwstls="vmess://$(base64 -w 0 /etc/xray/configsni-vmess-$user-wstls.json)"
+vmesslinkgrpc="vmess://$(base64 -w 0 /etc/xray/configsni-vmess-$user-grpc.json)"
 
 #buatlinkshadowsocks
 echo $cipher:$uuid > /tmp/log
