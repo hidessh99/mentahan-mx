@@ -16,7 +16,6 @@ rm -rf menu-update
 rm -rf menu-pengaturan
 rm -rf menu-fix
 rm -rf menu-cek
-rm -rf menu-config
 rm -rf menu-domain
 rm -rf updatedll
 rm -r updatedll
@@ -48,7 +47,7 @@ wget -O cek-vmess "https://${akcell}/cek/cek-vmess.sh"
 wget -O cek-trojan "https://${akcell}/cek/cek-trojan.sh"
 wget -O cek-ss "https://${akcell}/cek/cek-ss.sh"
 wget -O cek-uservmess "https://${akcell}/cek/cek-uservmess.sh"
-wget -O menu-config "https://${akcell}/cek/menu-config.sh"
+wget -O menu-config "https://${akcell}/menu-config.sh"
 wget -O add-configws "https://${akcell}/cek/add-configws.sh"
 wget -O add-configsni "https://${akcell}/cek/add-configsni.sh"
 wget -O menu-pengaturan "https://${akcell}/menu-pengaturan.sh"
