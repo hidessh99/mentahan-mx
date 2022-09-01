@@ -49,7 +49,15 @@ wget -O cek-ss "https://${akcell}/cek/cek-ss.sh"
 wget -O cek-uservmess "https://${akcell}/cek/cek-uservmess.sh"
 wget -O menu-config "https://${akcell}/menu-config.sh"
 wget -O add-configws "https://${akcell}/cek/add-configws.sh"
+wget -O add-configwstrojan "https://${akcell}/cek/add-configwstrojan.sh"
+wget -O add-configwsvless "https://${akcell}/cek/add-configwsvless.sh"
+wget -O add-configwsvmess "https://${akcell}/cek/add-configwsvmess.sh"
+wget -O add-configwsss "https://${akcell}/cek/add-configwsss.sh"
 wget -O add-configsni "https://${akcell}/cek/add-configsni.sh"
+wget -O add-configsnitrojan "https://${akcell}/cek/add-configsnitrojan.sh"
+wget -O add-configsnivless "https://${akcell}/cek/add-configsnivless.sh"
+wget -O add-configsnivmess "https://${akcell}/cek/add-configsnivmess.sh"
+wget -O add-configsniss "https://${akcell}/cek/add-configsniss.sh"
 wget -O menu-pengaturan "https://${akcell}/menu-pengaturan.sh"
 wget -O cek-port "https://${akcell}/pengaturan/cek-port.sh"
 wget -O menu-backup "https://${akcell}/menu-backup.sh"
@@ -88,7 +96,15 @@ chmod +x cek-vless
 chmod +x cek-uservmess
 chmod +x menu-config
 chmod +x add-configws
+chmod +x add-configwstrojan
+chmod +x add-configwsvless
+chmod +x add-configwsvmess
+chmod +x add-configwsss
 chmod +x add-configsni
+chmod +x add-configsnitrojan
+chmod +x add-configsnivless
+chmod +x add-configsnivmess
+chmod +x add-configsniss
 chmod +x menu-update
 chmod +x menu-pengaturan
 chmod +x cek-port
