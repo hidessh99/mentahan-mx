@@ -62,13 +62,6 @@ v="vmess"
 l="vless"
 s="shadowsock"
 g="grpc"
-#buatdatamultiakun
-cat>/etc/xray/config-multi.json<<EOF
-#multiakun
-EOF
-cd
-sed -i '/#multiakun$/a\# '"$user $exp $hariini $uuid $t"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config-multi.json
 #buattrojan
 sed -i '/#trojanws$/a\# '"$user $exp $hariini $uuid $t"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
