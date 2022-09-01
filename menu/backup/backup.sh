@@ -1,5 +1,4 @@
 #!/bin/bash
-# SL
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -32,11 +31,13 @@ cp /etc/passwd backup/
 cp /etc/group backup/
 cp /etc/shadow backup/
 cp /etc/gshadow backup/
+cp /etc/msmtprc backup/
+cp /home/email backup/
 cp /etc/ppp/chap-secrets backup/chap-secrets
 cp -r /var/lib/crot/ backup/crot
 cp -r /etc/xray backup/xray
+cp -r /home/vps backup/vps
 cp -r /root/domain backup/domain
-cp -r /home/vps/public_html backup/public_html
 cd /root
 cd /root
 zip -r $IP-$date.zip backup > /dev/null 2>&1
