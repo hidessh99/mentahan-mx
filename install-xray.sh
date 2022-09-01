@@ -341,8 +341,8 @@ NoNewPrivileges=true
 ExecStart=/usr/local/bin/xray run -config /etc/xray/config.json
 Restart=on-failure
 RestartPreventExitStatus=23
-LimitNPROC=10000
-LimitNOFILE=1000000
+LimitNPROC=1000000
+LimitNOFILE=10000000
 
 [Install]
 WantedBy=multi-user.target
