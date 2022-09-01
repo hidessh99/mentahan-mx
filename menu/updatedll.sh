@@ -15,6 +15,8 @@ rm -rf menu-hapus
 rm -rf menu-update
 rm -rf menu-pengaturan
 rm -rf menu-fix
+rm -rf menu-cek
+rm -rf menu-config
 rm -rf menu-domain
 rm -rf updatedll
 rm -r updatedll
