@@ -33,7 +33,7 @@ nontls="$(cat ~/log-install.txt | grep -w "VMESS WS HTTP" | cut -d: -f2|sed 's/ 
 bugws=$(cat /home/bugws)
 bugsni=$(cat /home/bugsni)
 clear
-NUMBER_OF_CLIENTS=$(grep -c -E "#,##,###,#### " "/etc/xray/config.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^# " "/etc/xray/config.json")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		echo ""
 		echo "You have no existing clients!"
