@@ -85,6 +85,7 @@ chmod +x cek-trojan
 chmod +x cek-vmess
 chmod +x cek-vless
 chmod +x cek-uservmess
+chmod +x menu-config
 chmod +x add-configws
 chmod +x add-configsni
 chmod +x menu-update
