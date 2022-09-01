@@ -29,12 +29,12 @@ EOF
 function bugsni() {
 rm -rf /home/bugsni
 echo "Please enter your bugsni"
-read -rp "Bugsni : " -e bugsni
+read -rp "Bugsni : " -e bugws
 cat <<EOF>>/home/bugsni
 $bugsni
 EOF
-}
-
+cd
+clear
 echo -e "=============================="
 echo -e     "    AUTO CONFIG    "
 echo -e "=============================="
