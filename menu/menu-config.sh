@@ -19,18 +19,18 @@ Info="${Green_font_prefix}[ON]${Font_color_suffix}"
 Error="${Red_font_prefix}[OFF]${Font_color_suffix}"
 
 function bugws() {
-rm -rf /home/bugws
+rm -rf /etc/xray/bugws
 echo "Please enter your bugws"
 read -rp "Bugws : " -e bugws
-cat <<EOF>>/home/bugws
+cat <<EOF>>/etc/xray/bugws
 $bugws
 EOF
 }
 function bugsni() {
-rm -rf /home/bugsni
+rm -rf /etc/xray/bugsni
 echo "Please enter your bugsni"
-read -rp "Bugsni : " -e bugws
-cat <<EOF>>/home/bugsni
+read -rp "Bugsni : " -e bugsni
+cat <<EOF>>/etc/xray/bugsni
 $bugsni
 EOF
 cd
