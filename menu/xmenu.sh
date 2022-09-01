@@ -34,9 +34,10 @@ echo "║ 5. Menu Backup                                                  ║"
 echo "║ 6. Menu Domain                                                  ║"
 echo "║ 7. Menu Fix                                                     ║"
 echo "║ 8. Menu Update                                                  ║"
-echo "║ 9. Speedtest vps                                                ║"
-echo "║ 10. Reboot vps                                                  ║"
-echo "║ 11.Exit                                                         ║"
+echo "║ 9. Menu Config                                                  ║"
+echo "║ 10. Speedtest vps                                               ║"
+echo "║ 11. Reboot vps                                                  ║"
+echo "║ 12.Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
 read -p "Select From Options [ 1 - 10 ] : " xmenu
 case $xmenu in 
@@ -74,13 +75,17 @@ menu-update
 ;;
 9)
 clear
-speedtest
+menu-config
 ;;
 10)
 clear
-reboot
+speedtest
 ;;
 11)
+clear
+reboot
+;;
+12)
 clear
 exit
 ;;
