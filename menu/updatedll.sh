@@ -60,6 +60,7 @@ wget -O add-configsnivmess "https://${akcell}/cek/add-configsnivmess.sh"
 wget -O add-configsniss "https://${akcell}/cek/add-configsniss.sh"
 wget -O menu-pengaturan "https://${akcell}/menu-pengaturan.sh"
 wget -O cek-port "https://${akcell}/pengaturan/cek-port.sh"
+wget -O limitspeed "https://${akcell}/pengaturan/limitspeed.sh"
 wget -O menu-backup "https://${akcell}/menu-backup.sh"
 wget -O menu-update "https://${akcell}/menu-update.sh"
 wget -O menu-fix "https://${akcell}/menu-fix.sh"
@@ -108,6 +109,7 @@ chmod +x add-configsniss
 chmod +x menu-update
 chmod +x menu-pengaturan
 chmod +x cek-port
+chmod +x limitspeed
 chmod +x menu-backup
 chmod +x menu-fix
 chmod +x certv2ray
