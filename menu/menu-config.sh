@@ -46,9 +46,17 @@ echo -e "     Auto Config V2ray     "
 echo -e "=============================="
 echo -e "1. Ganti Bug WS"
 echo -e "2. Ganti Bug SNI"
-echo -e "3. Buat Config WS "
-echo -e "4. Buat Config SNI"
-echo -e "5. Infobug"
+echo -e "3. Buat Config WS Multiakun "
+echo -e "4. Buat Config WS Trojan-go"
+echo -e "5. Buat Config WS Vless"
+echo -e "6. Buat Config WS Vmess"
+echo -e "7. Buat Config WS Shadowsock"
+echo -e "8. Buat Config SNI Multiakun"
+echo -e "9. Buat Config SNI Trojan-go"
+echo -e "10. Buat Config SNI Vless"
+echo -e "11. Buat Config SNI Vmess"
+echo -e "12. Buat Config SNI Shadowsock"
+echo -e "13. Infobug"
 echo -e "=============================="
 read -rp "Please Enter The Correct Number : " -e num
 case $num in
@@ -62,9 +70,33 @@ bugsni
 add-configws
 ;;
 4)
-add-configsni
+add-configwstrojan
 ;;
 5)
+add-configwsvless
+;;
+6)
+add-configwsvmess
+;;
+7)
+add-configwsss
+;;
+8)
+add-configsni
+;;
+9)
+add-configsnitrojan
+;;
+10)
+add-configsnivless
+;;
+11)
+add-configsnivmess
+;;
+12)
+add-configsniss
+;;
+13)
 infobug
 ;;
 *)
