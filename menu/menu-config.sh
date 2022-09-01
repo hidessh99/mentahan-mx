@@ -1,22 +1,22 @@
 #!/bin/bash
-# ==========================================
-# Color
-RED='\033[0;31m'
-NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
-# Getting
 clear
-IP=$(wget -qO- ipinfo.io/ip);
-date=$(date +"%Y-%m-%d");
-Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
-Info="${Green_font_prefix}[ON]${Font_color_suffix}"
-Error="${Red_font_prefix}[OFF]${Font_color_suffix}"
+echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
+echo -e " \E[0;41;36m                 INFO SERVER                \E[0m"
+echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m"
+uphours=`uptime -p | awk '{print $2,$3}' | cut -d , -f1`
+upminutes=`uptime -p | awk '{print $4,$5}' | cut -d , -f1`
+uptimecek=`uptime -p | awk '{print $6,$7}' | cut -d , -f1`
+cekup=`uptime -p | grep -ow "day"`
+IPVPS=$(curl -s ipinfo.io/ip )
+ISPVPS=$( curl -s ipinfo.io/org )
+#clear
+if [ "$cekup" = "day" ]; then
+echo -e "System Uptime   :  $uphours $upminutes $uptimecek"
+else
+echo -e "System Uptime   :  $uphours $upminutes"
+fi
+echo -e "IP-VPS          :  $IPVPS"
+echo -e "ISP-VPS         :  $ISPVPS"
 
 function bugws() {
 rm -rf /etc/xray/bugws
@@ -33,6 +33,7 @@ read -rp "Bugsni : " -e bugsni
 cat <<EOF>>/etc/xray/bugsni
 $bugsni
 EOF
+}
 cd
 clear
 echo -e "=============================="
@@ -44,8 +45,9 @@ echo -e "3. Buat Config WS"
 echo -e "4. Buat Config SNI"
 echo -e "5. Info Bug"
 echo -e "=============================="
-read -rp "Please Enter The Correct Number : " -e num
-case $num in
+read -p "Select From Options [ 1 - 7 ] : " xmenu
+echo -e ""
+case $xmenu in 
 1)
 bugws
 ;;
@@ -63,5 +65,6 @@ infobug
 ;;
 *)
 clear
+xmenu
 ;;
 esac
