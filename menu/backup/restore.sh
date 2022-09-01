@@ -1,5 +1,4 @@
 #!/bin/bash
-# SL
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -27,11 +26,13 @@ cp passwd /etc/
 cp group /etc/
 cp shadow /etc/
 cp gshadow /etc/
+cp msmtprc /etc/
+cp email /home/
 cp chap-secrets /etc/ppp/
 cp -r crot /var/lib/
 cp -r domain /root/
 cp -r xray /etc/
-cp -r public_html /home/vps/
+cp -r vps /home/
 cp crontab /etc/
 
 systemctl restart xray
