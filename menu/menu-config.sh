@@ -24,107 +24,48 @@ sts="${Info}"
 else
 sts="${Error}"
 fi
-function start() {
-email=$(cat /home/email)
-if [[ "$email" = "" ]]; then
-echo "Please enter your email"
-read -rp "Email : " -e email
-cat <<EOF>>/home/email
-$email
-EOF
-fi
-cat << EOF >> /etc/crontab
-# BEGIN_Backup
-5 0 * * * root backup
-# END_Backup
-EOF
-service cron restart
-sleep 1
-echo " Please Wait"
-clear
-echo " Autobackup Has Been Started"
-echo " Data Will Be Backed Up Automatically at 00:05 GMT +7"
-exit 0
-}
-function stop() {
-email=$(cat /home/email)
-sed -i "/^$email/d" /home/email
-sed -i "/^# BEGIN_Backup/,/^# END_Backup/d" /etc/crontab
-service cron restart
-sleep 1
-echo " Please Wait"
-clear
-echo " Autobackup Has Been Stopped"
-exit 0
-}
-
 function bugws() {
 rm -rf /etc/xray/bugws
 echo "Please enter your bugws"
 read -rp "Bugws : " -e bugws
 cat <<EOF>>/etc/xray/bugws
-$email
+$bugws
 EOF
 }
-function gantipengirim() {
-echo "Please enter your email"
-read -rp "Email : " -e email
-echo "Please enter your Password email"
-read -rp "Password : " -e pwdd
-rm -rf /etc/msmtprc
-cat<<EOF>>/etc/msmtprc
-defaults
-tls on
-tls_starttls on
-tls_trust_file /etc/ssl/certs/ca-certificates.crt
-account default
-host smtp.gmail.com
-port 587
-auth on
-user $email
-from $email
-password $pwdd
-logfile ~/.msmtp.log
+function bugsni() {
+rm -rf /etc/xray/bugsni
+echo "Please enter your bugsni"
+read -rp "Bugsni : " -e bugsni
+cat <<EOF>>/etc/xray/bugsni
+$bugsni
 EOF
-}
-function testemail() {
-email=$(cat /home/email)
-if [[ "$email" = "" ]]; then
-start
-fi
-email=$(cat /home/email)
-echo -e "
-Ini adalah isi email percobaaan kirim email dari vps
-IP VPS : $IP
-Tanggal : $date
-" | mail -s "Percobaan Pengiriman Email" $email
 }
 clear
 echo -e "=============================="
-echo -e "     Autobackup Data $sts     "
+echo -e "     Auto Config V2ray     "
 echo -e "=============================="
-echo -e "1. Start Autobackup"
-echo -e "2. Stop Autobackup"
-echo -e "3. Ganti bugws"
-echo -e "4. Ganti Email Pengirim"
-echo -e "5. Test kirim Email"
+echo -e "1. Ganti Bug WS"
+echo -e "2. Ganti Bug SNI"
+echo -e "3. Buat Config WS "
+echo -e "4. Buat Config SNI"
+echo -e "5. Infobug"
 echo -e "=============================="
 read -rp "Please Enter The Correct Number : " -e num
 case $num in
 1)
-start
-;;
-2)
-stop
-;;
-3)
 bugws
 ;;
+2)
+bugsni
+;;
+3)
+add-configws
+;;
 4)
-gantipengirim
+add-configsni
 ;;
 5)
-testemail
+infobug
 ;;
 *)
 clear
