@@ -27,8 +27,8 @@ echo "╔═══════════════════════�
 echo "║                     ┃ XRAY XMENU PENGATURAN ┃                   ║" 
 echo "╚═════════════════════════════════════════════════════════════════╝"  
 echo "║ 1. Pengaturan                                                   ║"
-echo "║ 2. Pengaturan 2                                                 ║"
-echo "║ 3. Cek Port                                                             ║"
+echo "║ 2. limitspeed                                                   ║"
+echo "║ 3. Cek Port                                                     ║"
 echo "║ 4.                                                              ║"
 echo "║ 5.                                                              ║"
 echo "║ 6. Menu Utama                                                   ║"
@@ -41,7 +41,7 @@ case $xmenu in
 pengaturan
 ;;
 2)
-pengaturan2
+limitspeed
 ;;
 3)
 cek-port
