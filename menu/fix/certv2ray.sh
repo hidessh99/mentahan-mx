@@ -26,3 +26,14 @@ echo "starting...., Port 80 Akan di Hentikan Saat Proses install Cert"
 bash acme.sh --register-account -m kimochilol@gmail.com
 bash acme.sh --issue --standalone -d $domain --force
 bash acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
+cd
+clear
+#restratxray
+systemctl daemon-reload
+systemctl enable xray
+systemctl restart xray
+systemctl restart nginx
+systemctl enable runn
+systemctl restart runn
+cd
+clear
