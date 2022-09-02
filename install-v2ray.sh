@@ -9,14 +9,14 @@ red='\e[1;31m'
 green='\e[0;32m'
 yell='\e[1;33m'
 NC='\e[0m'
-echo "XRAY Core Vmess / Vless / Trojan / Shadowsocks"
+echo "v2ray Core Vmess / Vless / Trojan / Shadowsocks"
 echo "Trojan"
 echo "Progress..."
 sleep 3
 
 domain=$(cat /root/domain)
 sleep 1
-mkdir -p /etc/xray 
+mkdir -p /etc/v2ray 
 echo -e "[ ${green}INFO${NC} ] Checking... "
 apt install iptables iptables-persistent -y
 sleep 1
@@ -80,7 +80,7 @@ uuid9=$(cat /proc/sys/kernel/random/uuid)
 uuid=b8458948-a630-4e6d-809a-230b2223ff3d
 
 # v2ray config
-cat > /etc/xray/config.json << END
+cat > /etc/v2ray/config.json << END
 {
   "log" : {
     "access": "/var/log/v2ray/access.log",
@@ -136,7 +136,7 @@ cat > /etc/xray/config.json << END
         }
      },
     {
-      "listen": "/run/xray/trojan_ws.sock",
+      "listen": "/run/v2ray/trojan_ws.sock",
       "protocol": "trojan",
       "settings": {
           "decryption":"none",		
@@ -494,4 +494,4 @@ yellow "v2ray/Shadowsocks"
 #done
 clear
 #rm -f ins-v2ray.sh
-rm -f install-xray.sh
+rm -f install-v2ray.sh
