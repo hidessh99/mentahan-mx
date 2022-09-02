@@ -76,7 +76,7 @@ chmod +x /usr/bin/vmenu
 chmod +x updatedll2
 chmod +x vmenu
 chmod +x set-br
-chmod +x menu-buat
+chmod +x menu-buat2
 chmod +x add-akun
 chmod +x add-trojan
 chmod +x add-vmess2
