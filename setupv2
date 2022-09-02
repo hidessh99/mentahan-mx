@@ -78,7 +78,7 @@ sleep 15
 cd
 rm -rf updatedll2
 rm -rf updatedll2.sh
-rm -rf setup.sh
+rm -rf setupv2.sh
 rm -rf install-v2ray.sh
 rm -rf install-tools.sh
 rm -rf set-br.sh
