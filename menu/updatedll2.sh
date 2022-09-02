@@ -10,7 +10,7 @@ cd /usr/bin
 rm -rf vmenu
 rm -rf set-br
 rm -rf menu-backup
-rm -rf menu-buat
+rm -rf menu-buat2
 rm -rf menu-hapus
 rm -rf menu-update
 rm -rf menu-pengaturan
@@ -28,7 +28,7 @@ cd /usr/bin
 wget -O updatedll2 "https://${akcell}/updatedll2.sh"
 wget -O vmenu "https://${akcell}/vmenu.sh"
 wget -O set-br "https://${akcell}/set-br.sh"
-wget -O menu-buat "https://${akcell}/menu-buat.sh"
+wget -O menu-buat2 "https://${akcell}/menu-buat2.sh"
 wget -O add-akun "https://${akcell}/buat/add-akun.sh"
 wget -O add-trojan "https://${akcell}/buat/add-trojan.sh"
 wget -O add-vmess2 "https://${akcell}/buat/add-vmess2.sh"
