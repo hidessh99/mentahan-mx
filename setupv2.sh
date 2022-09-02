@@ -27,7 +27,7 @@ mkdir /var/lib/crot;
 echo "IP=" >> /var/lib/crot/ipvps.conf
 cd
 #install tools/alat
-wget https://raw.githubusercontent.com/arismuslimin/xraymulti/main/install-tools.sh && chmod +x install-tools.sh && ./install-tools.sh
+wget https://raw.githubusercontent.com/arismuslimin/xraymulti/main/install-tools2.sh && chmod +x install-tools2.sh && ./install-tools2.sh
 #Instal V2RAY
 wget https://raw.githubusercontent.com/arismuslimin/xraymulti/main/install-v2ray.sh && chmod +x install-v2ray.sh && ./install-v2ray.sh
 #install xmenu
