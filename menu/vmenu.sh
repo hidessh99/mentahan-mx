@@ -39,11 +39,11 @@ echo "║ 10. Speedtest vps                                               ║"
 echo "║ 11. Reboot vps                                                  ║"
 echo "║ 12.Exit                                                         ║"
 echo "╚═════════════════════════════════════════════════════════════════╝" 
-read -p "Select From Options [ 1 - 10 ] : " xmenu
-case $xmenu in 
+read -p "Select From Options [ 1 - 10 ] : " vmenu
+case $vmenu in 
 1)
 clear
-menu-buat
+menu-buat2
 ;;
 2)
 clear
@@ -67,7 +67,7 @@ menu-domain
 ;;
 7)
 clear
-menu-fix
+menu-fix2
 ;;
 8)
 clear
