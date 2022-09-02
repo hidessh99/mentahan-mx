@@ -31,7 +31,7 @@ wget -O set-br "https://${akcell}/set-br.sh"
 wget -O menu-buat "https://${akcell}/menu-buat.sh"
 wget -O add-akun "https://${akcell}/buat/add-akun.sh"
 wget -O add-trojan "https://${akcell}/buat/add-trojan.sh"
-wget -O add-vmess "https://${akcell}/buat/add-vmess.sh"
+wget -O add-vmess2 "https://${akcell}/buat/add-vmess2.sh"
 wget -O add-vless "https://${akcell}/buat/add-vless.sh"
 wget -O add-ss "https://${akcell}/buat/add-ss.sh"
 wget -O menu-hapus "https://${akcell}/menu-hapus.sh"
@@ -63,8 +63,8 @@ wget -O cek-port "https://${akcell}/pengaturan/cek-port.sh"
 wget -O limitspeed "https://${akcell}/pengaturan/limitspeed.sh"
 wget -O menu-backup "https://${akcell}/menu-backup.sh"
 wget -O menu-update "https://${akcell}/menu-update.sh"
-wget -O menu-fix "https://${akcell}/menu-fix.sh"
-wget -O certv2ray "https://${akcell}/fix/certv2ray.sh"
+wget -O menu-fix2 "https://${akcell}/menu-fix2.sh"
+wget -O certv2ray2 "https://${akcell}/fix/certv2ray2.sh"
 wget -O restart-v2ray "https://${akcell}/fix/restart-v2ray.sh"
 wget -O menu-domain "https://${akcell}/menu-domain.sh"
 wget -O auto-pointing "https://${akcell}/domain/auto-pointing.sh"
@@ -79,7 +79,7 @@ chmod +x set-br
 chmod +x menu-buat
 chmod +x add-akun
 chmod +x add-trojan
-chmod +x add-vmess
+chmod +x add-vmess2
 chmod +x add-vless
 chmod +x add-ss
 chmod +x menu-hapus
@@ -111,8 +111,8 @@ chmod +x menu-pengaturan
 chmod +x cek-port
 chmod +x limitspeed
 chmod +x menu-backup
-chmod +x menu-fix
-chmod +x certv2ray
+chmod +x menu-fix2
+chmod +x certv2ray2
 chmod +x restart-v2ray
 chmod +x menu-domain
 chmod +x auto-pointing
