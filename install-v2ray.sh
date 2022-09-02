@@ -62,7 +62,7 @@ touch /var/log/v2ray/access2.log
 touch /var/log/v2ray/error2.log
 # / / Ambil v2ray Core Version Terbaru
 bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
-
+ash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
 
 
 ## crt v2ray
