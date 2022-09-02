@@ -31,7 +31,7 @@ wget https://raw.githubusercontent.com/arismuslimin/xraymulti/main/install-tools
 #Instal V2RAY
 wget https://raw.githubusercontent.com/arismuslimin/xraymulti/main/install-v2ray.sh && chmod +x install-v2ray.sh && ./install-v2ray.sh
 #install xmenu
-wget https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/updatedll.sh && chmod +x updatedll.sh && ./updatedll.sh
+wget https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/updatedll2.sh && chmod +x updatedll2.sh && ./updatedll2.sh
 #istall set br
 wget https://raw.githubusercontent.com/arismuslimin/xraymulti/main/menu/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 #SELESAI
@@ -76,8 +76,8 @@ echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
 echo " Reboot 15 Sec"
 sleep 15
 cd
-rm -rf updatedll
-rm -rf updatedll.sh
+rm -rf updatedll2
+rm -rf updatedll2.sh
 rm -rf setup.sh
 rm -rf install-v2ray.sh
 rm -rf install-tools.sh
