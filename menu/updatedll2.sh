@@ -14,7 +14,7 @@ rm -rf menu-buat
 rm -rf menu-hapus
 rm -rf menu-update
 rm -rf menu-pengaturan
-rm -rf menu-fix
+rm -rf menu-fix2
 rm -rf menu-cek
 rm -rf menu-domain
 rm -rf updatedll2
