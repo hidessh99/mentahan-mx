@@ -1,41 +1,60 @@
 #!/bin/bash
 clear
-m="\033[0;1;36m"
-y="\033[0;1;37m"
-yy="\033[0;1;32m"
-yl="\033[0;1;33m"
-wh="\033[0m"
-echo -e "$y                             VMESS $wh"
-echo -e "$y-------------------------------------------------------------$wh"
-echo -e "$yy 1$y. Create Account XRAYS Vmess Websocket"
-echo -e "$yy 2$y. Delete Account XRAYS Vmess Websocket"
-echo -e "$yy 3$y. Extending Account XRAYS Vmess Active Life"
-echo -e "$yy 4$y. Check User Login XRAYS Vmess"
-echo -e "$yy 5$y. Renew Certificate XRAYS Account"
-echo -e "$yy 6$y. Menu"
-echo -e "$yy 7$y. Exit"
-echo -e "$y-------------------------------------------------------------$wh"
-read -p "Select From Options [ 1 - 7 ] : " xmenu
+echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
+echo -e " \E[0;41;36m                 INFO SERVER                \E[0m"
+echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m"
+uphours=`uptime -p | awk '{print $2,$3}' | cut -d , -f1`
+upminutes=`uptime -p | awk '{print $4,$5}' | cut -d , -f1`
+uptimecek=`uptime -p | awk '{print $6,$7}' | cut -d , -f1`
+cekup=`uptime -p | grep -ow "day"`
+IPVPS=$(curl -s ipinfo.io/ip )
+ISPVPS=$( curl -s ipinfo.io/org )
+#clear
+if [ "$cekup" = "day" ]; then
+echo -e "System Uptime   :  $uphours $upminutes $uptimecek"
+else
+echo -e "System Uptime   :  $uphours $upminutes"
+fi
+echo -e "IP-VPS          :  $IPVPS"
+echo -e "ISP-VPS         :  $ISPVPS"
+echo "╔═════════════════════════════════════════════════════════════════╗"
+echo "║                       ┃ Script By Akcell ┃                      ║" 
+echo "╚═════════════════════════════════════════════════════════════════╝"
+echo "╔═════════════════════════════════════════════════════════════════╗"
+echo "║                           085730123218                          ║" 
+echo "╚═════════════════════════════════════════════════════════════════╝"
+echo "╔═════════════════════════════════════════════════════════════════╗"
+echo "║                     ┃ XRAY XMENU BUAT AKUN ┃                    ║" 
+echo "╚═════════════════════════════════════════════════════════════════╝"  
+echo "║ 1. Buat Akun Semua Akun (vmess,vless,trojan,shadowsock)         ║"
+echo "║ 2. Buat Akun Vmess                                              ║"
+echo "║ 3. Buat Akun Vless                                              ║"
+echo "║ 4. Buat Akun Trojan-go                                          ║"
+echo "║ 5. Buat akun Shadowsock                                         ║"
+echo "║ 6. Menu Utama                                                   ║"
+echo "║ 7. Exit                                                         ║"
+echo "╚═════════════════════════════════════════════════════════════════╝" 
+read -p "Select From Options [ 1 - 7 ] : " vmenu
 echo -e ""
-case $xmenu in
+case $vmenu in 
 1)
-add-akun
+add-akun2
 ;;
 2)
-delvmess
+add-vmess2
 ;;
 3)
-renewvmess
+add-vless2
 ;;
 4)
-cekvmess
+add-trojan2
 ;;
 5)
-certv2ray
+add-ss2
 ;;
 6)
 clear
-menu
+vmenu
 ;;
 7)
 clear
@@ -43,6 +62,6 @@ exit
 ;;
 *)
 clear
-menu
+xmenu
 ;;
 esac
